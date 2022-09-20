@@ -1,0 +1,4 @@
+# Introduction {#intro}
+
+A book of R code of Siying Huang for biomarker analysis. Particularly this book
+contains major analytical methods and reporting.
