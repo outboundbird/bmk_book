@@ -19,6 +19,7 @@ _book/
 
 # RStudio files
 .Rproj.user/
+*.Rproj
 .Rproj
 
 # produced vignettes
@@ -41,3 +42,6 @@ vignettes/*.pdf
 
 # VS code
 *.code-workspace
+
+# R code
+pkg_install.R

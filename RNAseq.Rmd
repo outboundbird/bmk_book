@@ -1,3 +1,14 @@
 # Bulk RNA seqeuncing analysis
 
-bloahahahaha
+## Preprocessing
+
+### Filtering
+
+### Normalization
+
+
+## Differential expression analysis
+
+## Pathway enrichement analysis 
+
+## Clustering

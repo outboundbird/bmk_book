@@ -1,6 +1,6 @@
 ---
-title: "Authoring A Book with R Markdown"
-author: "Yihui Xie"
+title: "A notebook for biomarker analysis in pharmacutical setting"
+author: "Siying Huang"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 output:
