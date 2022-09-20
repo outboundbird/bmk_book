@@ -1,0 +1,10 @@
+# Multiplicity {#multiplicity}
+
+Multiple comparison in omic data setting.
+
+## Family wise comparison
+
+
+## False discovery rate (FDR)
+
+## Local FDR

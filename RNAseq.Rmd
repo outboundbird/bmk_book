@@ -9,6 +9,14 @@
 
 ## Differential expression analysis
 
-## Pathway enrichement analysis 
+## Differential co-expression analysis
+
+## Pathway analysis
+
+### Gene set enrichment analysis (GSEA)
+
+### Single sample gene set enrichment analysis (ssGSEA)
+
+### Gene set variation analysis (GSVA)
 
 ## Clustering
