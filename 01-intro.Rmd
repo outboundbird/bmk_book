@@ -1,10 +1,22 @@
 # Introduction {#intro}
 
-A book of R code of Siying Huang for biomarker analysis. Particularly this book
-contains major analytical methods and reporting.
+This is an evolving, never-complete notes for biological marker (biomarker) analysis in the
+pharmaceutical setting. The purpose is to document the concept of each type of
+biomarker and analytical approach.In general, it covers the topics of DNA, RNA, protein, cell types. It also talks
+about the some statistical issues such as multiplicity, power calculation, detection limit, etc.
+
+Additionally, I provide R code examples for implementing methods. These code are basic and
+are for illustration purpose only. This book is not meant for teaching purpose, albeit the scientific
+references and resources are provided under each chapter. The analytical approaches in this book
+are based on my personal work experience, and are not subject to any kind of the convention in any
+enterprising setting. It is open to constructive suggestions. I do not have strong urge for any
+recommendations in real practice since each problem is unique. However, the fundemental principles
+are discussed in the context. It is up to the analytical personnels to decide based on the situations
+they are facing.
+
+
+Last but not least,
 
 > Markdown, no MS Word
 >
 > --- Siying Huang
-
-This book is not meaning for teaching purpose. 
