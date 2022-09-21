@@ -1,4 +1,4 @@
-# Basic biology {biology}
+# Basic biology {#biology}
 
 ## Blood samples
 Whole blood vs. peripheral blood mononuclear cells (PBMC)
