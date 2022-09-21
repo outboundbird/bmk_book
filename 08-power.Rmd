@@ -3,3 +3,4 @@
 ## Sample size calculation in *in vitro* studies
 
 ## Sample size calculation in *omics* studies
+Consideration of false positive results 

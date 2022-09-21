@@ -3,6 +3,11 @@
 ## Pharmacoscan
 Samples were genotyped using a microarray platform (PharmacoScan™) that targets genetic variants reported to be associated with adverse drug reactions. The array contains more than 18,000 variants (single nucleotide polymorphisms (SNPs), insertions and deletions, copy number variants) for genes that have been associated with adverse drug reactions, including DILI, and are involved in the processes of drug absorption, distribution, metabolism, excretion (ADME genes) and antigen presentation (ie, HLA genes). The panel includes 927 HLA-related variants.
 
+File format for genomewide analysis
+
+- `map`, `ped` files
+
+
 ### Single nucleotide variant data
 
 ## HLA region targeted sequencing

@@ -2,3 +2,7 @@
 
 A book of R code of Siying Huang for biomarker analysis. Particularly this book
 contains major analytical methods and reporting.
+
+> Markdown, no MS Word
+>
+> --- Siying Huang
