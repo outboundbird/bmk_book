@@ -6,3 +6,5 @@ contains major analytical methods and reporting.
 > Markdown, no MS Word
 >
 > --- Siying Huang
+
+This book is not meaning for teaching purpose. 
