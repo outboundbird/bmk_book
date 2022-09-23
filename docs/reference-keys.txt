@@ -44,10 +44,8 @@ inter-class-correlation-coefficient
 intraclass-correlation-coefficient-icc
 sample-size-for-calibrations
 the-calibration-function
-sample-size-calculation-for-calictration
+sample-size-calculation-for-calibration
 sample-size-calculation-examples
-cvx-cvy-0.2
-cvx0.1-cvy0.05
 choosing-samples-range
 estimating-coefficient-variation-cv-within-the-same-measures
 consideration-for-prediction-precision
