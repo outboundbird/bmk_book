@@ -2,3 +2,13 @@
 
 ## Blood samples
 Whole blood vs. peripheral blood mononuclear cells (PBMC)
+
+
+## DNA
+
+### Common terms in populational genetics
+
+## RNA
+
+
+## Protein 

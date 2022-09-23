@@ -15,3 +15,8 @@ Last but not least,
 > Markdown, no MS Word.
 >
 > ---- awesome tomato
+
+## Author
+
+Siying H is a freelance data scientist currently working at an international pharmaceutical enterprise.
+She has obtained her PhD at University of Michigan, US in environmental epidemiology.
