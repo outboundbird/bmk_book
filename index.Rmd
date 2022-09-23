@@ -1,3 +1,17 @@
 # Preface {-}
 
-this is preface
+This is an evolving, never-complete note for biological marker (biomarker) analysis in the
+pharmaceutical setting. The purpose is to document the concept of each type of
+biomarker and analytical approach. In general, it covers the topics of DNA, RNA, protein, and cell types analyses. It also talks about some statistical issues such as multiplicity, power calculation, detection limit, etc that one may face when analyzing biomarker data.
+
+Additionally, I provide R code examples for implementing methods. These codes are basic and
+are for illustration purposes only. This book is not meant for teaching purposes, albeit scientific
+references and resources are provided in each chapter. The analytical approaches in this book are based on my personal work experience and are not subject to any kind of convention in any enterprise setting. It is open to constructive suggestions. I do not have a strong urge to recommend any analytical approach in real practice since each problem is unique. However, the fundamental principles are discussed in the context of these notes. It is up to the analytical personnel to decide based on the situations they are facing.
+
+
+
+Last but not least,
+
+> Markdown, no MS Word.
+>
+> ---- awesome tomato
