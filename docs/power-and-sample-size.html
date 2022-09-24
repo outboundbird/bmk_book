@@ -6,10 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9 Power and sample size | _main.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9 Power and sample size | _main.knit" />
   <meta property="og:type" content="book" />
+  
   
   
   
@@ -30,6 +31,7 @@
   
 <link rel="prev" href="multiplicity.html"/>
 <link rel="next" href="detection-limit-of-assays.html"/>
+<script src="libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -47,6 +49,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -55,25 +58,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +86,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -130,74 +134,111 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="biology.html"><a href="biology.html"><i class="fa fa-check"></i><b>2</b> Basic biology</a><ul>
-<li class="chapter" data-level="2.1" data-path="biology.html"><a href="biology.html#blood-samples"><i class="fa fa-check"></i><b>2.1</b> Blood samples</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="cell-type.html"><a href="cell-type.html"><i class="fa fa-check"></i><b>3</b> Cell type</a><ul>
-<li class="chapter" data-level="3.1" data-path="cell-type.html"><a href="cell-type.html#flowcytometry-data"><i class="fa fa-check"></i><b>3.1</b> flowcytometry data</a></li>
-<li class="chapter" data-level="3.2" data-path="cell-type.html"><a href="cell-type.html#cell-type-deconvolution"><i class="fa fa-check"></i><b>3.2</b> Cell type deconvolution</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html"><i class="fa fa-check"></i><b>4</b> Bulk RNA seqeuncing analysis</a><ul>
-<li class="chapter" data-level="4.1" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#preprocessing"><i class="fa fa-check"></i><b>4.1</b> Preprocessing</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#filtering"><i class="fa fa-check"></i><b>4.1.1</b> Filtering</a></li>
-<li class="chapter" data-level="4.1.2" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#normalization"><i class="fa fa-check"></i><b>4.1.2</b> Normalization</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#differential-expression-analysis"><i class="fa fa-check"></i><b>4.2</b> Differential expression analysis</a></li>
-<li class="chapter" data-level="4.3" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#differential-co-expression-analysis"><i class="fa fa-check"></i><b>4.3</b> Differential co-expression analysis</a></li>
-<li class="chapter" data-level="4.4" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#pathway-analysis"><i class="fa fa-check"></i><b>4.4</b> Pathway analysis</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#gene-set-enrichment-analysis-gsea"><i class="fa fa-check"></i><b>4.4.1</b> Gene set enrichment analysis (GSEA)</a></li>
-<li class="chapter" data-level="4.4.2" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#single-sample-gene-set-enrichment-analysis-ssgsea"><i class="fa fa-check"></i><b>4.4.2</b> Single sample gene set enrichment analysis (ssGSEA)</a></li>
-<li class="chapter" data-level="4.4.3" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#gene-set-variation-analysis-gsva"><i class="fa fa-check"></i><b>4.4.3</b> Gene set variation analysis (GSVA)</a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#clustering"><i class="fa fa-check"></i><b>4.5</b> Clustering</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="Nanostring.html"><a href="Nanostring.html"><i class="fa fa-check"></i><b>5</b> Nanostring technology</a></li>
-<li class="chapter" data-level="6" data-path="proteinomics.html"><a href="proteinomics.html"><i class="fa fa-check"></i><b>6</b> Proteinomics</a><ul>
-<li class="chapter" data-level="6.1" data-path="proteinomics.html"><a href="proteinomics.html#olink"><i class="fa fa-check"></i><b>6.1</b> OLINK</a></li>
-<li class="chapter" data-level="6.2" data-path="proteinomics.html"><a href="proteinomics.html#semalogic"><i class="fa fa-check"></i><b>6.2</b> Semalogic</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html"><i class="fa fa-check"></i><b>7</b> Pharmacogenetics analysis</a><ul>
-<li class="chapter" data-level="7.1" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#basic-genetic-concepts"><i class="fa fa-check"></i><b>7.1</b> Basic genetic concepts</a></li>
-<li class="chapter" data-level="7.2" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#pharmacoscan"><i class="fa fa-check"></i><b>7.2</b> Pharmacoscan</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#software-for-analysis"><i class="fa fa-check"></i><b>7.2.1</b> Software for analysis</a></li>
-<li class="chapter" data-level="7.2.2" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#single-nucleotide-variant-data"><i class="fa fa-check"></i><b>7.2.2</b> Single nucleotide variant data</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#hla-region-targeted-sequencing"><i class="fa fa-check"></i><b>7.3</b> HLA region targeted sequencing</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#hla-nomenclature-and-sequencing-output"><i class="fa fa-check"></i><b>7.3.1</b> HLA nomenclature and sequencing output</a></li>
-<li class="chapter" data-level="7.3.2" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#drb1-and-drb3drb4drb5"><i class="fa fa-check"></i><b>7.3.2</b> DRB1 and DRB3/DRB4/DRB5</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#reference"><i class="fa fa-check"></i><b>7.4</b> Reference</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="multiplicity.html"><a href="multiplicity.html"><i class="fa fa-check"></i><b>8</b> Multiplicity</a><ul>
-<li class="chapter" data-level="8.1" data-path="multiplicity.html"><a href="multiplicity.html#family-wise-comparison"><i class="fa fa-check"></i><b>8.1</b> Family wise comparison</a></li>
-<li class="chapter" data-level="8.2" data-path="multiplicity.html"><a href="multiplicity.html#false-discovery-rate-fdr"><i class="fa fa-check"></i><b>8.2</b> False discovery rate (FDR)</a></li>
-<li class="chapter" data-level="8.3" data-path="multiplicity.html"><a href="multiplicity.html#local-fdr"><i class="fa fa-check"></i><b>8.3</b> Local FDR</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html"><i class="fa fa-check"></i><b>9</b> Power and sample size</a><ul>
-<li class="chapter" data-level="9.1" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#sample-size-calculation-in-in-vitro-studies"><i class="fa fa-check"></i><b>9.1</b> Sample size calculation in <em>in vitro</em> studies</a></li>
-<li class="chapter" data-level="9.2" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#sample-size-calculation-in-omics-studies"><i class="fa fa-check"></i><b>9.2</b> Sample size calculation in <em>omics</em> studies</a></li>
-<li class="chapter" data-level="9.3" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#sample-size-calculation-for-calibration-studies"><i class="fa fa-check"></i><b>9.3</b> Sample size calculation for calibration studies</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#agreement-between-two-measurements"><i class="fa fa-check"></i><b>9.3.1</b> 1. Agreement between two measurements</a></li>
-<li class="chapter" data-level="9.3.2" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#sample-size-for-calibrations"><i class="fa fa-check"></i><b>9.3.2</b> 2. Sample size for calibrations</a></li>
-<li class="chapter" data-level="9.3.3" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#choosing-samples-range"><i class="fa fa-check"></i><b>9.3.3</b> Choosing samples range</a></li>
-<li class="chapter" data-level="9.3.4" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#estimating-coefficient-variation-cv-within-the-same-measures"><i class="fa fa-check"></i><b>9.3.4</b> Estimating coefficient variation (CV) within the same measures</a></li>
-<li class="chapter" data-level="9.3.5" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#final-consideration-for-sample-size"><i class="fa fa-check"></i><b>9.3.5</b> Final consideration for sample size</a></li>
-<li class="chapter" data-level="9.3.6" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#reference-1"><i class="fa fa-check"></i><b>9.3.6</b> Reference</a></li>
+<li><a href="index.html#preface">Preface<span></span></a>
+<ul>
+<li><a href="index.html#author">Author<span></span></a>
+<ul>
+<li><a href="index.html#became-a-data-scientist">Became a data scientist<span></span></a></li>
+<li><a href="index.html#how-did-i-started-programing">How did I started programing?<span></span></a></li>
+<li><a href="index.html#more-background">More background<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html"><i class="fa fa-check"></i><b>10</b> Detection limit of assays</a><ul>
-<li class="chapter" data-level="10.1" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#upper-and-lower-detection-limit"><i class="fa fa-check"></i><b>10.1</b> Upper and lower detection limit</a></li>
-<li class="chapter" data-level="10.2" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#violation-in-distribution-assumption"><i class="fa fa-check"></i><b>10.2</b> Violation in distribution assumption</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a></li>
+<li class="chapter" data-level="2" data-path="biology.html"><a href="biology.html"><i class="fa fa-check"></i><b>2</b> Basic biology<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="biology.html"><a href="biology.html#blood-samples"><i class="fa fa-check"></i><b>2.1</b> Blood samples<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="biology.html"><a href="biology.html#dna"><i class="fa fa-check"></i><b>2.2</b> DNA<span></span></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="biology.html"><a href="biology.html#common-terms-in-populational-genetics"><i class="fa fa-check"></i><b>2.2.1</b> Common terms in populational genetics<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>11</b> Visualization</a><ul>
-<li class="chapter" data-level="11.1" data-path="visualization.html"><a href="visualization.html#packages"><i class="fa fa-check"></i><b>11.1</b> packages</a></li>
-<li class="chapter" data-level="11.2" data-path="visualization.html"><a href="visualization.html#basic-static-plot"><i class="fa fa-check"></i><b>11.2</b> Basic static plot</a></li>
-<li class="chapter" data-level="11.3" data-path="visualization.html"><a href="visualization.html#special-plots"><i class="fa fa-check"></i><b>11.3</b> Special plots</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="visualization.html"><a href="visualization.html#genetic-analysis"><i class="fa fa-check"></i><b>11.3.1</b> Genetic analysis</a></li>
-<li class="chapter" data-level="11.3.2" data-path="visualization.html"><a href="visualization.html#rna-seq-analysis"><i class="fa fa-check"></i><b>11.3.2</b> RNA seq analysis</a></li>
-<li class="chapter" data-level="11.3.3" data-path="visualization.html"><a href="visualization.html#clustering-analysis"><i class="fa fa-check"></i><b>11.3.3</b> Clustering analysis</a></li>
+<li class="chapter" data-level="2.3" data-path="biology.html"><a href="biology.html#rna"><i class="fa fa-check"></i><b>2.3</b> RNA<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="biology.html"><a href="biology.html#protein"><i class="fa fa-check"></i><b>2.4</b> Protein<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cell-type.html"><a href="cell-type.html"><i class="fa fa-check"></i><b>3</b> Cell type<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cell-type.html"><a href="cell-type.html#flowcytometry-data"><i class="fa fa-check"></i><b>3.1</b> flowcytometry data<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="cell-type.html"><a href="cell-type.html#cell-type-deconvolution"><i class="fa fa-check"></i><b>3.2</b> Cell type deconvolution<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html"><i class="fa fa-check"></i><b>4</b> Bulk RNA seqeuncing analysis<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#preprocessing"><i class="fa fa-check"></i><b>4.1</b> Preprocessing<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#filtering"><i class="fa fa-check"></i><b>4.1.1</b> Filtering<span></span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#normalization"><i class="fa fa-check"></i><b>4.1.2</b> Normalization<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#differential-expression-analysis"><i class="fa fa-check"></i><b>4.2</b> Differential expression analysis<span></span></a></li>
+<li class="chapter" data-level="4.3" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#differential-co-expression-analysis"><i class="fa fa-check"></i><b>4.3</b> Differential co-expression analysis<span></span></a></li>
+<li class="chapter" data-level="4.4" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#pathway-analysis"><i class="fa fa-check"></i><b>4.4</b> Pathway analysis<span></span></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#gene-set-enrichment-analysis-gsea"><i class="fa fa-check"></i><b>4.4.1</b> Gene set enrichment analysis (GSEA)<span></span></a></li>
+<li class="chapter" data-level="4.4.2" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#single-sample-gene-set-enrichment-analysis-ssgsea"><i class="fa fa-check"></i><b>4.4.2</b> Single sample gene set enrichment analysis (ssGSEA)<span></span></a></li>
+<li class="chapter" data-level="4.4.3" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#gene-set-variation-analysis-gsva"><i class="fa fa-check"></i><b>4.4.3</b> Gene set variation analysis (GSVA)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="bulk-rna-seqeuncing-analysis.html"><a href="bulk-rna-seqeuncing-analysis.html#clustering"><i class="fa fa-check"></i><b>4.5</b> Clustering<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Nanostring.html"><a href="Nanostring.html"><i class="fa fa-check"></i><b>5</b> Nanostring technology<span></span></a></li>
+<li class="chapter" data-level="6" data-path="proteinomics.html"><a href="proteinomics.html"><i class="fa fa-check"></i><b>6</b> Proteinomics<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="proteinomics.html"><a href="proteinomics.html#olink"><i class="fa fa-check"></i><b>6.1</b> OLINK<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="proteinomics.html"><a href="proteinomics.html#semalogic"><i class="fa fa-check"></i><b>6.2</b> Semalogic<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html"><i class="fa fa-check"></i><b>7</b> Pharmacogenetics analysis<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#basic-genetic-concepts"><i class="fa fa-check"></i><b>7.1</b> Basic genetic concepts<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#pharmacoscan"><i class="fa fa-check"></i><b>7.2</b> Pharmacoscan<span></span></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#software-for-analysis"><i class="fa fa-check"></i><b>7.2.1</b> Software for analysis<span></span></a></li>
+<li class="chapter" data-level="7.2.2" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#single-nucleotide-variant-data"><i class="fa fa-check"></i><b>7.2.2</b> Single nucleotide variant data<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#hla-region-targeted-sequencing"><i class="fa fa-check"></i><b>7.3</b> HLA region targeted sequencing<span></span></a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#hla-nomenclature-and-sequencing-output"><i class="fa fa-check"></i><b>7.3.1</b> HLA nomenclature and sequencing output<span></span></a></li>
+<li class="chapter" data-level="7.3.2" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#drb1-and-drb3drb4drb5"><i class="fa fa-check"></i><b>7.3.2</b> DRB1 and DRB3/DRB4/DRB5<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="pharmacogenetics-analysis.html"><a href="pharmacogenetics-analysis.html#reference"><i class="fa fa-check"></i><b>7.4</b> Reference<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="multiplicity.html"><a href="multiplicity.html"><i class="fa fa-check"></i><b>8</b> Multiplicity<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="multiplicity.html"><a href="multiplicity.html#family-wise-comparison"><i class="fa fa-check"></i><b>8.1</b> Family wise comparison<span></span></a></li>
+<li class="chapter" data-level="8.2" data-path="multiplicity.html"><a href="multiplicity.html#false-discovery-rate-fdr"><i class="fa fa-check"></i><b>8.2</b> False discovery rate (FDR)<span></span></a></li>
+<li class="chapter" data-level="8.3" data-path="multiplicity.html"><a href="multiplicity.html#local-fdr"><i class="fa fa-check"></i><b>8.3</b> Local FDR<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html"><i class="fa fa-check"></i><b>9</b> Power and sample size<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#sample-size-calculation-in-in-vitro-studies"><i class="fa fa-check"></i><b>9.1</b> Sample size calculation in <em>in vitro</em> studies<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#sample-size-calculation-in-omics-studies"><i class="fa fa-check"></i><b>9.2</b> Sample size calculation in <em>omics</em> studies<span></span></a></li>
+<li class="chapter" data-level="9.3" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#sample-size-calculation-for-calibration-studies"><i class="fa fa-check"></i><b>9.3</b> Sample size calculation for calibration studies<span></span></a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#agreement-between-two-measurements"><i class="fa fa-check"></i><b>9.3.1</b> 1. Agreement between two measurements<span></span></a></li>
+<li class="chapter" data-level="9.3.2" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#sample-size-for-calibrations"><i class="fa fa-check"></i><b>9.3.2</b> 2. Sample size for calibrations<span></span></a></li>
+<li class="chapter" data-level="9.3.3" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#choosing-samples-range"><i class="fa fa-check"></i><b>9.3.3</b> Choosing samples range<span></span></a></li>
+<li class="chapter" data-level="9.3.4" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#estimating-coefficient-variation-cv-within-the-same-measures"><i class="fa fa-check"></i><b>9.3.4</b> Estimating coefficient variation (CV) within the same measures<span></span></a></li>
+<li class="chapter" data-level="9.3.5" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#final-consideration-for-sample-size"><i class="fa fa-check"></i><b>9.3.5</b> Final consideration for sample size<span></span></a></li>
+<li class="chapter" data-level="9.3.6" data-path="power-and-sample-size.html"><a href="power-and-sample-size.html#reference-1"><i class="fa fa-check"></i><b>9.3.6</b> Reference<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html"><i class="fa fa-check"></i><b>10</b> Detection limit of assays<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#upper-and-lower-detection-limit"><i class="fa fa-check"></i><b>10.1</b> Upper and lower detection limit<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#violation-in-distribution-assumption-and-bias-in-effect-estimate"><i class="fa fa-check"></i><b>10.2</b> Violation in distribution assumption and bias in effect estimate<span></span></a></li>
+<li class="chapter" data-level="10.3" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#methods-for-detection-limit-problem"><i class="fa fa-check"></i><b>10.3</b> Methods for detection limit problem<span></span></a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#substitution"><i class="fa fa-check"></i><b>10.3.1</b> Substitution<span></span></a></li>
+<li class="chapter" data-level="10.3.2" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#km"><i class="fa fa-check"></i><b>10.3.2</b> KM<span></span></a></li>
+<li class="chapter" data-level="10.3.3" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#ros"><i class="fa fa-check"></i><b>10.3.3</b> ROS<span></span></a></li>
+<li class="chapter" data-level="10.3.4" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#mle"><i class="fa fa-check"></i><b>10.3.4</b> MLE<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#comparisons-of-the-methods"><i class="fa fa-check"></i><b>10.4</b> Comparisons of the methods<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>11</b> Visualization<span></span></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="visualization.html"><a href="visualization.html#packages"><i class="fa fa-check"></i><b>11.1</b> packages<span></span></a></li>
+<li class="chapter" data-level="11.2" data-path="visualization.html"><a href="visualization.html#basic-static-plot"><i class="fa fa-check"></i><b>11.2</b> Basic static plot<span></span></a></li>
+<li class="chapter" data-level="11.3" data-path="visualization.html"><a href="visualization.html#special-plots"><i class="fa fa-check"></i><b>11.3</b> Special plots<span></span></a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="visualization.html"><a href="visualization.html#genetic-analysis"><i class="fa fa-check"></i><b>11.3.1</b> Genetic analysis<span></span></a></li>
+<li class="chapter" data-level="11.3.2" data-path="visualization.html"><a href="visualization.html#rna-seq-analysis"><i class="fa fa-check"></i><b>11.3.2</b> RNA seq analysis<span></span></a></li>
+<li class="chapter" data-level="11.3.3" data-path="visualization.html"><a href="visualization.html#clustering-analysis"><i class="fa fa-check"></i><b>11.3.3</b> Clustering analysis<span></span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -217,23 +258,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="power-and-sample-size" class="section level1 hasAnchor">
+<div id="power-and-sample-size" class="section level1 hasAnchor" number="9">
 <h1><span class="header-section-number">9</span> Power and sample size<a href="power-and-sample-size.html#power-and-sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="sample-size-calculation-in-in-vitro-studies" class="section level2 hasAnchor">
+<div id="sample-size-calculation-in-in-vitro-studies" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Sample size calculation in <em>in vitro</em> studies<a href="power-and-sample-size.html#sample-size-calculation-in-in-vitro-studies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="sample-size-calculation-in-omics-studies" class="section level2 hasAnchor">
+<div id="sample-size-calculation-in-omics-studies" class="section level2 hasAnchor" number="9.2">
 <h2><span class="header-section-number">9.2</span> Sample size calculation in <em>omics</em> studies<a href="power-and-sample-size.html#sample-size-calculation-in-omics-studies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Consideration of false positive results</p>
 </div>
-<div id="sample-size-calculation-for-calibration-studies" class="section level2 hasAnchor">
+<div id="sample-size-calculation-for-calibration-studies" class="section level2 hasAnchor" number="9.3">
 <h2><span class="header-section-number">9.3</span> Sample size calculation for calibration studies<a href="power-and-sample-size.html#sample-size-calculation-for-calibration-studies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="agreement-between-two-measurements" class="section level3 hasAnchor">
+<div id="agreement-between-two-measurements" class="section level3 hasAnchor" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> 1. Agreement between two measurements<a href="power-and-sample-size.html#agreement-between-two-measurements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>assess the agreement of two measurements</li>
 </ul>
-<div id="inter-class-correlation-coefficient" class="section level4 hasAnchor">
+<div id="inter-class-correlation-coefficient" class="section level4 hasAnchor" number="9.3.1.1">
 <h4><span class="header-section-number">9.3.1.1</span> Inter-class correlation coefficient<a href="power-and-sample-size.html#inter-class-correlation-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>Pearson correlation</li>
@@ -248,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Need to visually examine if there exist ceiling and flooring effect
 between two measurements.</p>
 </div>
-<div id="intraclass-correlation-coefficient-icc" class="section level4 hasAnchor">
+<div id="intraclass-correlation-coefficient-icc" class="section level4 hasAnchor" number="9.3.1.2">
 <h4><span class="header-section-number">9.3.1.2</span> Intraclass Correlation Coefficient (ICC)<a href="power-and-sample-size.html#intraclass-correlation-coefficient-icc" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Generally speaking, the ICC determines the reliability of ratings by
 comparing the variability of different ratings of the same individuals
@@ -268,17 +309,17 @@ same group are not similar.</li>
 <li>two tails</li>
 </ul>
 <p><strong>Example calibration between RNAseq and nanostring measurements</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(ICC.Sample.Size)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(tidyr)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(kableExtra)</a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb2-5" title="5"></a>
-<a class="sourceLine" id="cb2-6" title="6">sample &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;RNAseq&quot;</span>, <span class="st">&quot;nanostring&quot;</span>), <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb2-7" title="7">genes &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">30</span>), <span class="dt">ncol =</span> <span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb2-8" title="8"><span class="kw">rownames</span>(genes) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;gene&quot;</span>, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))</a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="kw">colnames</span>(genes) &lt;-<span class="st"> </span>sample</a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="kw">kable</span>(genes, <span class="dt">digits =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="st">  </span><span class="kw">add_header_above</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;ID1&quot;</span> =<span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;ID2&quot;</span> =<span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;ID3&quot;</span> =<span class="st"> </span><span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="power-and-sample-size.html#cb1-1"></a><span class="kw">library</span>(ICC.Sample.Size)</span>
+<span id="cb1-2"><a href="power-and-sample-size.html#cb1-2"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb1-3"><a href="power-and-sample-size.html#cb1-3"></a><span class="kw">library</span>(kableExtra)</span>
+<span id="cb1-4"><a href="power-and-sample-size.html#cb1-4"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="power-and-sample-size.html#cb1-5"></a></span>
+<span id="cb1-6"><a href="power-and-sample-size.html#cb1-6"></a>sample &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;RNAseq&quot;</span>, <span class="st">&quot;nanostring&quot;</span>), <span class="dv">3</span>)</span>
+<span id="cb1-7"><a href="power-and-sample-size.html#cb1-7"></a>genes &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">30</span>), <span class="dt">ncol =</span> <span class="dv">6</span>)</span>
+<span id="cb1-8"><a href="power-and-sample-size.html#cb1-8"></a><span class="kw">rownames</span>(genes) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;gene&quot;</span>, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))</span>
+<span id="cb1-9"><a href="power-and-sample-size.html#cb1-9"></a><span class="kw">colnames</span>(genes) &lt;-<span class="st"> </span>sample</span>
+<span id="cb1-10"><a href="power-and-sample-size.html#cb1-10"></a><span class="kw">kable</span>(genes, <span class="dt">digits =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-11"><a href="power-and-sample-size.html#cb1-11"></a><span class="st">  </span><span class="kw">add_header_above</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;ID1&quot;</span> =<span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;ID2&quot;</span> =<span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;ID3&quot;</span> =<span class="st"> </span><span class="dv">2</span>))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -329,22 +370,22 @@ nanostring
 gene1
 </td>
 <td style="text-align:right;">
-1.19
+0.28
 </td>
 <td style="text-align:right;">
-2.23
+0.36
 </td>
 <td style="text-align:right;">
--0.56
+0.51
 </td>
 <td style="text-align:right;">
-0.29
+0.34
 </td>
 <td style="text-align:right;">
-1.51
+-1.48
 </td>
 <td style="text-align:right;">
--1.38
+-0.31
 </td>
 </tr>
 <tr>
@@ -352,22 +393,22 @@ gene1
 gene2
 </td>
 <td style="text-align:right;">
-0.53
+-0.54
 </td>
 <td style="text-align:right;">
-0.06
+0.15
 </td>
 <td style="text-align:right;">
--0.10
+0.28
 </td>
 <td style="text-align:right;">
-1.00
+0.34
 </td>
 <td style="text-align:right;">
--0.28
+0.67
 </td>
 <td style="text-align:right;">
-0.83
+-0.27
 </td>
 </tr>
 <tr>
@@ -375,22 +416,22 @@ gene2
 gene3
 </td>
 <td style="text-align:right;">
-0.66
+-0.68
 </td>
 <td style="text-align:right;">
-0.45
+-1.07
 </td>
 <td style="text-align:right;">
--0.08
+1.02
 </td>
 <td style="text-align:right;">
--0.02
+-1.33
 </td>
 <td style="text-align:right;">
--0.71
+1.41
 </td>
 <td style="text-align:right;">
-0.57
+-1.71
 </td>
 </tr>
 <tr>
@@ -398,22 +439,22 @@ gene3
 gene4
 </td>
 <td style="text-align:right;">
-1.04
+-0.42
 </td>
 <td style="text-align:right;">
-0.76
+-0.45
 </td>
 <td style="text-align:right;">
--0.88
+-0.06
 </td>
 <td style="text-align:right;">
--2.47
+-1.43
 </td>
 <td style="text-align:right;">
-1.00
+1.74
 </td>
 <td style="text-align:right;">
-1.10
+-0.89
 </td>
 </tr>
 <tr>
@@ -421,35 +462,35 @@ gene4
 gene5
 </td>
 <td style="text-align:right;">
--0.21
+0.46
 </td>
 <td style="text-align:right;">
--0.38
+0.43
 </td>
 <td style="text-align:right;">
-0.11
+1.30
 </td>
 <td style="text-align:right;">
-0.00
+-0.20
 </td>
 <td style="text-align:right;">
-0.38
+-0.43
 </td>
 <td style="text-align:right;">
-0.36
+-1.43
 </td>
 </tr>
 </tbody>
 </table>
 <p><em>Statistical power at 80%, single tail</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">k2a005p08 &lt;-<span class="st"> </span><span class="kw">calculateIccSampleSize</span>(<span class="dt">by =</span> <span class="st">&quot;both&quot;</span>, <span class="dt">tails =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb3-2" title="2">table_n &lt;-<span class="st"> </span>k2a005p08[[<span class="dv">2</span>]]</a>
-<a class="sourceLine" id="cb3-3" title="3"></a>
-<a class="sourceLine" id="cb3-4" title="4">knitr<span class="op">::</span><span class="kw">kable</span>(table_n,</a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="dt">caption =</span> <span class="st">&quot;Table of sample size (N) given null and alterative hythosis of ICC.&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">color =</span> <span class="kw">ifelse</span>(<span class="kw">rownames</span>(table_n) <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>, <span class="st">&quot;red&quot;</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="st">  </span><span class="kw">add_header_above</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;ICC0&quot;</span> =<span class="st"> </span><span class="dv">20</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-8" title="8"><span class="st">  </span><span class="kw">pack_rows</span>(<span class="st">&quot;ICC&quot;</span>, <span class="dv">1</span>, <span class="dv">20</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="power-and-sample-size.html#cb2-1"></a>k2a005p08 &lt;-<span class="st"> </span><span class="kw">calculateIccSampleSize</span>(<span class="dt">by =</span> <span class="st">&quot;both&quot;</span>, <span class="dt">tails =</span> <span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="power-and-sample-size.html#cb2-2"></a>table_n &lt;-<span class="st"> </span>k2a005p08[[<span class="dv">2</span>]]</span>
+<span id="cb2-3"><a href="power-and-sample-size.html#cb2-3"></a></span>
+<span id="cb2-4"><a href="power-and-sample-size.html#cb2-4"></a>knitr<span class="op">::</span><span class="kw">kable</span>(table_n,</span>
+<span id="cb2-5"><a href="power-and-sample-size.html#cb2-5"></a><span class="dt">caption =</span> <span class="st">&quot;Table of sample size (N) given null and alterative hythosis of ICC.&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb2-6"><a href="power-and-sample-size.html#cb2-6"></a><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">color =</span> <span class="kw">ifelse</span>(<span class="kw">rownames</span>(table_n) <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>, <span class="st">&quot;red&quot;</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb2-7"><a href="power-and-sample-size.html#cb2-7"></a><span class="st">  </span><span class="kw">add_header_above</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;ICC0&quot;</span> =<span class="st"> </span><span class="dv">20</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb2-8"><a href="power-and-sample-size.html#cb2-8"></a><span class="st">  </span><span class="kw">pack_rows</span>(<span class="st">&quot;ICC&quot;</span>, <span class="dv">1</span>, <span class="dv">20</span>)</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-2">Table 9.1: </span>Table of sample size (N) given null and alterative hythosis of ICC.
@@ -1839,9 +1880,9 @@ Inf
 </table>
 </div>
 </div>
-<div id="sample-size-for-calibrations" class="section level3 hasAnchor">
+<div id="sample-size-for-calibrations" class="section level3 hasAnchor" number="9.3.2">
 <h3><span class="header-section-number">9.3.2</span> 2. Sample size for calibrations<a href="power-and-sample-size.html#sample-size-for-calibrations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="the-calibration-function" class="section level4 hasAnchor">
+<div id="the-calibration-function" class="section level4 hasAnchor" number="9.3.2.1">
 <h4><span class="header-section-number">9.3.2.1</span> The calibration function<a href="power-and-sample-size.html#the-calibration-function" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The goal is to associate a test value (e.g. RNAseq) to a reference value (e.g. nanostring) via a calibration function.
 We collect N samples of paired measured:
@@ -1865,7 +1906,7 @@ We want to estimage <span class="math inline">\(\beta_0, \beta_1\)</span> to sol
 \sigma_i^y = CV_x \times \tilde{Y} \\
 \]</span></p>
 <p>For estimating parameters in calibration function see the reference paper for different senarios.</p>
-<div id="sample-size-calculation-for-calibration" class="section level5 hasAnchor">
+<div id="sample-size-calculation-for-calibration" class="section level5 hasAnchor" number="9.3.2.1.1">
 <h5><span class="header-section-number">9.3.2.1.1</span> Sample size calculation for calibration<a href="power-and-sample-size.html#sample-size-calculation-for-calibration" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p><span class="math display">\[
 N = max_{k=1..K}\bigg\{\frac{(2Z_{1-\alpha})^2\times \sigma^2(x_k)}{\delta_k^2}\bigg\}\\
@@ -1883,44 +1924,44 @@ N = max_{k=1..K}\bigg\{\frac{(2Z_{1-\alpha})^2\times \sigma^2(x_k)}{\delta_k^2}\
 </ul>
 </div>
 </div>
-<div id="sample-size-calculation-examples" class="section level4 hasAnchor">
+<div id="sample-size-calculation-examples" class="section level4 hasAnchor" number="9.3.2.2">
 <h4><span class="header-section-number">9.3.2.2</span> Sample size calculation examples<a href="power-and-sample-size.html#sample-size-calculation-examples" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><strong>CVx= CVy = 0.2</strong></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">x0 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>)</a>
-<a class="sourceLine" id="cb4-2" title="2">d0 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb4-3" title="3"></a>
-<a class="sourceLine" id="cb4-4" title="4">calc_samplesize &lt;-<span class="st"> </span><span class="cf">function</span>(x0, d0, <span class="dt">x =</span><span class="kw">seq</span>(<span class="dv">5</span>, <span class="dv">1000</span>, <span class="dt">length =</span> <span class="dv">1000</span>), <span class="dt">CVx =</span><span class="fl">0.2</span>, <span class="dt">CVy=</span><span class="fl">0.2</span>) {</a>
-<a class="sourceLine" id="cb4-5" title="5">  CVcalibration<span class="op">::</span><span class="kw">samplesize</span>(x0, d0,</a>
-<a class="sourceLine" id="cb4-6" title="6">    <span class="dt">x =</span> x, <span class="co"># assuming RNAseq raw count data</span></a>
-<a class="sourceLine" id="cb4-7" title="7">    <span class="dt">CVx =</span> CVx, <span class="dt">CVy =</span> CVy</a>
-<a class="sourceLine" id="cb4-8" title="8">  )</a>
-<a class="sourceLine" id="cb4-9" title="9">}</a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="kw">lapply</span>(d0, <span class="cf">function</span>(d) {</a>
-<a class="sourceLine" id="cb4-12" title="12">  rst &lt;-<span class="st"> </span><span class="kw">sapply</span>(x0, <span class="cf">function</span>(x) <span class="kw">calc_samplesize</span>(<span class="dt">x0 =</span> x, <span class="dt">d0 =</span> d))</a>
-<a class="sourceLine" id="cb4-13" title="13">  tab &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span>, rst)</a>
-<a class="sourceLine" id="cb4-14" title="14">  <span class="co"># rownames(tab) &lt;- x0</span></a>
-<a class="sourceLine" id="cb4-15" title="15">  ymin &lt;-<span class="st"> </span><span class="kw">min</span>(tab)</a>
-<a class="sourceLine" id="cb4-16" title="16">  ymax &lt;-<span class="st"> </span><span class="kw">max</span>(tab)</a>
-<a class="sourceLine" id="cb4-17" title="17">  <span class="kw">plot</span>(x0, tab[, <span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb4-18" title="18">    <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>,</a>
-<a class="sourceLine" id="cb4-19" title="19">    <span class="dt">ylim =</span> <span class="kw">c</span>(ymin, ymax),</a>
-<a class="sourceLine" id="cb4-20" title="20">    <span class="dt">ylab =</span> <span class="st">&quot;N&quot;</span>,</a>
-<a class="sourceLine" id="cb4-21" title="21">    <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">&quot;d0=&quot;</span>, d)</a>
-<a class="sourceLine" id="cb4-22" title="22">  )</a>
-<a class="sourceLine" id="cb4-23" title="23">  <span class="kw">lines</span>(x0, tab[, <span class="dv">3</span>], <span class="dt">lty =</span> <span class="dv">3</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb4-24" title="24">  <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;1 CV known&quot;</span>, <span class="st">&quot;both CVs known&quot;</span>),</a>
-<a class="sourceLine" id="cb4-25" title="25">    <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>,</a>
-<a class="sourceLine" id="cb4-26" title="26">    <span class="dt">lty =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb4-27" title="27">  )</a>
-<a class="sourceLine" id="cb4-28" title="28">  <span class="kw">return</span>(<span class="ot">NULL</span>)</a>
-<a class="sourceLine" id="cb4-29" title="29">})</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="power-and-sample-size.html#cb3-1"></a>x0 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>)</span>
+<span id="cb3-2"><a href="power-and-sample-size.html#cb3-2"></a>d0 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">100</span>)</span>
+<span id="cb3-3"><a href="power-and-sample-size.html#cb3-3"></a></span>
+<span id="cb3-4"><a href="power-and-sample-size.html#cb3-4"></a>calc_samplesize &lt;-<span class="st"> </span><span class="cf">function</span>(x0, d0, <span class="dt">x =</span><span class="kw">seq</span>(<span class="dv">5</span>, <span class="dv">1000</span>, <span class="dt">length =</span> <span class="dv">1000</span>), <span class="dt">CVx =</span><span class="fl">0.2</span>, <span class="dt">CVy=</span><span class="fl">0.2</span>) {</span>
+<span id="cb3-5"><a href="power-and-sample-size.html#cb3-5"></a>  CVcalibration<span class="op">::</span><span class="kw">samplesize</span>(x0, d0,</span>
+<span id="cb3-6"><a href="power-and-sample-size.html#cb3-6"></a>    <span class="dt">x =</span> x, <span class="co"># assuming RNAseq raw count data</span></span>
+<span id="cb3-7"><a href="power-and-sample-size.html#cb3-7"></a>    <span class="dt">CVx =</span> CVx, <span class="dt">CVy =</span> CVy</span>
+<span id="cb3-8"><a href="power-and-sample-size.html#cb3-8"></a>  )</span>
+<span id="cb3-9"><a href="power-and-sample-size.html#cb3-9"></a>}</span>
+<span id="cb3-10"><a href="power-and-sample-size.html#cb3-10"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb3-11"><a href="power-and-sample-size.html#cb3-11"></a><span class="kw">lapply</span>(d0, <span class="cf">function</span>(d) {</span>
+<span id="cb3-12"><a href="power-and-sample-size.html#cb3-12"></a>  rst &lt;-<span class="st"> </span><span class="kw">sapply</span>(x0, <span class="cf">function</span>(x) <span class="kw">calc_samplesize</span>(<span class="dt">x0 =</span> x, <span class="dt">d0 =</span> d))</span>
+<span id="cb3-13"><a href="power-and-sample-size.html#cb3-13"></a>  tab &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span>, rst)</span>
+<span id="cb3-14"><a href="power-and-sample-size.html#cb3-14"></a>  <span class="co"># rownames(tab) &lt;- x0</span></span>
+<span id="cb3-15"><a href="power-and-sample-size.html#cb3-15"></a>  ymin &lt;-<span class="st"> </span><span class="kw">min</span>(tab)</span>
+<span id="cb3-16"><a href="power-and-sample-size.html#cb3-16"></a>  ymax &lt;-<span class="st"> </span><span class="kw">max</span>(tab)</span>
+<span id="cb3-17"><a href="power-and-sample-size.html#cb3-17"></a>  <span class="kw">plot</span>(x0, tab[, <span class="dv">1</span>],</span>
+<span id="cb3-18"><a href="power-and-sample-size.html#cb3-18"></a>    <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>,</span>
+<span id="cb3-19"><a href="power-and-sample-size.html#cb3-19"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(ymin, ymax),</span>
+<span id="cb3-20"><a href="power-and-sample-size.html#cb3-20"></a>    <span class="dt">ylab =</span> <span class="st">&quot;N&quot;</span>,</span>
+<span id="cb3-21"><a href="power-and-sample-size.html#cb3-21"></a>    <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">&quot;d0=&quot;</span>, d)</span>
+<span id="cb3-22"><a href="power-and-sample-size.html#cb3-22"></a>  )</span>
+<span id="cb3-23"><a href="power-and-sample-size.html#cb3-23"></a>  <span class="kw">lines</span>(x0, tab[, <span class="dv">3</span>], <span class="dt">lty =</span> <span class="dv">3</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">2</span>)</span>
+<span id="cb3-24"><a href="power-and-sample-size.html#cb3-24"></a>  <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;1 CV known&quot;</span>, <span class="st">&quot;both CVs known&quot;</span>),</span>
+<span id="cb3-25"><a href="power-and-sample-size.html#cb3-25"></a>    <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb3-26"><a href="power-and-sample-size.html#cb3-26"></a>    <span class="dt">lty =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb3-27"><a href="power-and-sample-size.html#cb3-27"></a>  )</span>
+<span id="cb3-28"><a href="power-and-sample-size.html#cb3-28"></a>  <span class="kw">return</span>(<span class="ot">NULL</span>)</span>
+<span id="cb3-29"><a href="power-and-sample-size.html#cb3-29"></a>})</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="864" /></p>
 </div>
 </div>
-<div id="choosing-samples-range" class="section level3 hasAnchor">
+<div id="choosing-samples-range" class="section level3 hasAnchor" number="9.3.3">
 <h3><span class="header-section-number">9.3.3</span> Choosing samples range<a href="power-and-sample-size.html#choosing-samples-range" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>There are two important considerations for choosing sampling methods: (i) the
@@ -1938,23 +1979,23 @@ help us to obtain an accurate estimate for the calibration function. There are s
 <li>uniformly sampling equal number of Xi’s from each of the subintervals.</li>
 </ol>
 </blockquote>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="kw">set.seed</span>(<span class="dv">789</span>)</a>
-<a class="sourceLine" id="cb5-3" title="3">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">500</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb5-4" title="4">x1 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">500</span>, <span class="dv">-1</span>, <span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb5-5" title="5">qt &lt;-<span class="st"> </span><span class="kw">quantile</span>(x)</a>
-<a class="sourceLine" id="cb5-6" title="6">x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">runif</span>(<span class="dv">100</span>,qt[<span class="dv">1</span>], qt[<span class="dv">2</span>]), <span class="kw">runif</span>(<span class="dv">100</span>, qt[<span class="dv">2</span>], qt[<span class="dv">3</span>]), <span class="kw">runif</span>(<span class="dv">100</span>, qt[<span class="dv">3</span>], qt[<span class="dv">4</span>]), <span class="kw">runif</span>(<span class="dv">100</span>,qt[<span class="dv">4</span>], qt[<span class="dv">5</span>]))</a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="kw">hist</span>(x, <span class="dt">breaks =</span><span class="dv">30</span>, <span class="dt">main =</span><span class="st">&quot;random sampling&quot;</span>)</a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="kw">hist</span>(x1, <span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">main =</span><span class="st">&quot;uniform sampling&quot;</span>)</a>
-<a class="sourceLine" id="cb5-9" title="9"><span class="kw">hist</span>(x2, <span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">main =</span> <span class="st">&quot;hybrid sampling&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="power-and-sample-size.html#cb4-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb4-2"><a href="power-and-sample-size.html#cb4-2"></a><span class="kw">set.seed</span>(<span class="dv">789</span>)</span>
+<span id="cb4-3"><a href="power-and-sample-size.html#cb4-3"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">500</span>, <span class="dv">2</span>)</span>
+<span id="cb4-4"><a href="power-and-sample-size.html#cb4-4"></a>x1 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">500</span>, <span class="dv">-1</span>, <span class="dv">5</span>)</span>
+<span id="cb4-5"><a href="power-and-sample-size.html#cb4-5"></a>qt &lt;-<span class="st"> </span><span class="kw">quantile</span>(x)</span>
+<span id="cb4-6"><a href="power-and-sample-size.html#cb4-6"></a>x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">runif</span>(<span class="dv">100</span>,qt[<span class="dv">1</span>], qt[<span class="dv">2</span>]), <span class="kw">runif</span>(<span class="dv">100</span>, qt[<span class="dv">2</span>], qt[<span class="dv">3</span>]), <span class="kw">runif</span>(<span class="dv">100</span>, qt[<span class="dv">3</span>], qt[<span class="dv">4</span>]), <span class="kw">runif</span>(<span class="dv">100</span>,qt[<span class="dv">4</span>], qt[<span class="dv">5</span>]))</span>
+<span id="cb4-7"><a href="power-and-sample-size.html#cb4-7"></a><span class="kw">hist</span>(x, <span class="dt">breaks =</span><span class="dv">30</span>, <span class="dt">main =</span><span class="st">&quot;random sampling&quot;</span>)</span>
+<span id="cb4-8"><a href="power-and-sample-size.html#cb4-8"></a><span class="kw">hist</span>(x1, <span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">main =</span><span class="st">&quot;uniform sampling&quot;</span>)</span>
+<span id="cb4-9"><a href="power-and-sample-size.html#cb4-9"></a><span class="kw">hist</span>(x2, <span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">main =</span> <span class="st">&quot;hybrid sampling&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="768" /></p>
 </div>
-<div id="estimating-coefficient-variation-cv-within-the-same-measures" class="section level3 hasAnchor">
+<div id="estimating-coefficient-variation-cv-within-the-same-measures" class="section level3 hasAnchor" number="9.3.4">
 <h3><span class="header-section-number">9.3.4</span> Estimating coefficient variation (CV) within the same measures<a href="power-and-sample-size.html#estimating-coefficient-variation-cv-within-the-same-measures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>repeated measures in the same sample to obtain the estimation of CV in both techonologies</li>
 </ul>
-<div id="consideration-for-prediction-precision" class="section level4 hasAnchor">
+<div id="consideration-for-prediction-precision" class="section level4 hasAnchor" number="9.3.4.1">
 <h4><span class="header-section-number">9.3.4.1</span> Consideration for prediction precision<a href="power-and-sample-size.html#consideration-for-prediction-precision" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Calibration can be viewed as a prediction model. Without any error measurement and assuming
 constant error variance, a linear model can be used:
@@ -1969,13 +2010,13 @@ used as a precision proxy [4].</p>
 <p>Formula can be adapted with <span class="math inline">\(p\)</span> parameters [5]. Non linear relationship
 can be considered with a restricted cubic splines and k knots (k-1 parameters)
 We assume that k = 3f:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb6-2" title="2">  <span class="dt">MMOE =</span> <span class="kw">c</span>(<span class="fl">1.1</span>, <span class="fl">1.2</span>),</a>
-<a class="sourceLine" id="cb6-3" title="3">  <span class="dt">linear =</span> <span class="kw">c</span>(<span class="dv">235</span>, <span class="dv">71</span>),</a>
-<a class="sourceLine" id="cb6-4" title="4">  <span class="dt">non_linear =</span> <span class="kw">c</span>(<span class="dv">238</span>, <span class="dv">74</span>)</a>
-<a class="sourceLine" id="cb6-5" title="5">)</a>
-<a class="sourceLine" id="cb6-6" title="6"></a>
-<a class="sourceLine" id="cb6-7" title="7">knitr<span class="op">::</span><span class="kw">kable</span>(dat)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="power-and-sample-size.html#cb5-1"></a>dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb5-2"><a href="power-and-sample-size.html#cb5-2"></a>  <span class="dt">MMOE =</span> <span class="kw">c</span>(<span class="fl">1.1</span>, <span class="fl">1.2</span>),</span>
+<span id="cb5-3"><a href="power-and-sample-size.html#cb5-3"></a>  <span class="dt">linear =</span> <span class="kw">c</span>(<span class="dv">235</span>, <span class="dv">71</span>),</span>
+<span id="cb5-4"><a href="power-and-sample-size.html#cb5-4"></a>  <span class="dt">non_linear =</span> <span class="kw">c</span>(<span class="dv">238</span>, <span class="dv">74</span>)</span>
+<span id="cb5-5"><a href="power-and-sample-size.html#cb5-5"></a>)</span>
+<span id="cb5-6"><a href="power-and-sample-size.html#cb5-6"></a></span>
+<span id="cb5-7"><a href="power-and-sample-size.html#cb5-7"></a>knitr<span class="op">::</span><span class="kw">kable</span>(dat)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2017,13 +2058,13 @@ non_linear
 </table>
 </div>
 </div>
-<div id="final-consideration-for-sample-size" class="section level3 hasAnchor">
+<div id="final-consideration-for-sample-size" class="section level3 hasAnchor" number="9.3.5">
 <h3><span class="header-section-number">9.3.5</span> Final consideration for sample size<a href="power-and-sample-size.html#final-consideration-for-sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The sample size consideration should serve the purpose of analysis, which in our case is calibraion
 and agreement test. These two objectives might render different numbers. In order to gurantee
 the quality of prelminary analysis, we should take the max{N1, N2, N3}.</p>
 </div>
-<div id="reference-1" class="section level3 hasAnchor">
+<div id="reference-1" class="section level3 hasAnchor" number="9.3.6">
 <h3><span class="header-section-number">9.3.6</span> Reference<a href="power-and-sample-size.html#reference-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>[1]T. K. Koo and M. Y. Li, “A Guideline of Selecting and Reporting Intraclass Correlation Coefficients for Reliability Research”, Journal of Chiropractic Medicine, vol. 15, no. 2, pp. 155-163, Jun. 2016, doi: 10.1016/j.jcm.2016.02.012.</p>
 <p>[2]S. D. Walter, M. Eliasziw, and A. Donner, “Sample size and optimal designs for reliability studies”, Statistics in Medicine, vol. 17, no. 1, pp. 101–110, 1998, doi: 10.1002/(SICI)1097-0258(19980115)17:1&lt;101::AID-SIM727&gt;3.0.CO;2-E.</p>
@@ -2100,7 +2141,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

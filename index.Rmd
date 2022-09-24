@@ -12,11 +12,22 @@ references and resources are provided in each chapter. The analytical approaches
 
 Last but not least,
 
-> Markdown, no MS Word.
+> Markdown, no MS Word. `r emo::ji('sun')`
 >
 > ---- awesome tomato
 
-## Author
+## Author {-}
 
-Siying H is a freelance data scientist currently working at an international pharmaceutical enterprise.
-She has obtained her PhD at University of Michigan, US in environmental epidemiology.
+### Became a data scientist {-}
+
+Towards the end of my second postdoctoral work, I decided to leave academia. Almost a decade of training in research left me nothing so handy for any industrial professions but an analytical mind and skills for learning.  Becoming a data scientist was not a coincidence. I like statistics as well as methodologies and I like to deal with data. I didn't know what data science was, but I was told that I have a data scientist profile. So I took my first non-academic job as a data scientist. 
+
+
+### How did I started programing? {-}
+
+I was, am, will be 'lazy'. I don't like to repeat things, especially something like redoing analysis by just changing a predictor, or producing the same table with n different ways. So, while cranking and juggling among three research projects and 'dealing with' my advisors' 'what ifs...', I figured out a way to do less and produce more by compressing these repetitions into functions. I even created functions directly output result tables so that I didn't need to spend hours perfecting them on MS word.  I didn't tell anyone about this because I was afraid that if they knew they would ask me to do more analyses. Also, I didn't think it's a big deal, until one day my friend/colleague said to me, I wish I could have your programming skills. Man, it sounded so cool, even though I was just writing a few comment lines on the screen ... `r  emo::ji('sunglasses')  ` Then as computations got heavier, I learned parallel computing, logging, etc. I started to enjoy let the computer/server do the work and I was physically somewhere else. Eventually, I was able to build many things according to my needs. It's like building a robot and having control over it. I like the feeling of controlling something, I don't even get to control my life most of the time. But I'm a full commander of the programs. (Well, when it's not bugging.)
+
+### More background {-}
+
+You probably will understand me better by reading my blogs. Just in case this is not enough to make a professional decision, Here is my [CV](https://awesometomato.shinyapps.io/web_cv/) website. Yes, a website just for my curriculum vitae! Spoiler alert, it's boring.
+
