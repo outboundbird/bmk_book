@@ -4,7 +4,7 @@ image:
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
   - init: echo 'init script' # runs during prebuild
-    command: echo 'start script'
+    # command: echo 'start script'
     command: Rscript pkg_install.R
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
