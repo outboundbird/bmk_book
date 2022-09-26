@@ -46,4 +46,4 @@ vignettes/*.pdf
 *.code-workspace
 
 # R code
-pkg_install.R
+# pkg_install.R
