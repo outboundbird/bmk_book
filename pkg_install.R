@@ -6,7 +6,12 @@ req_libs <- c(
   "jsonlite",
   "languageserver",
   "devtools",
-  "lintr"
+  "lintr",
+  "ICC.Sample.Size",
+  "CVcalibration",
+  "kableExtra",
+  "dplyr",
+  "tidyr"
 )
 to_install <- req_libs[!req_libs %in% env_pkgs]
 failed_pkgs <- c()
