@@ -1,12 +1,13 @@
+image:
+  file: .gitpod.Dockerfile
+
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
   - init: echo 'init script' # runs during prebuild
     command: echo 'start script'
+    command: Rscript pkg_install.R
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
-ports:
-  - port: 3000
-    onOpen: open-preview
-
-image:
-  file: .gitpod.Dockerfile
+# ports:
+#   - port: 3000
+#     onOpen: open-preview
