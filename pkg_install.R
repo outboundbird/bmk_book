@@ -2,18 +2,20 @@
 env_pkgs <- .packages(all.available = T)
 attached <- (.packages())
 req_libs <- c(
-  "emo",
   "logger",
-  "devtools"
+  "jsonlite",
+  "languageserver",
+  "devtools",
+  "lintr"
 )
 to_install <- req_libs[!req_libs %in% env_pkgs]
 failed_pkgs <- c()
-
+options(repos=structure(c(CRAN="https://cran.rstudio.com/")))
 
 if (!length(to_install)) {
   lapply(req_libs, library, character.only = TRUE)
 } else {
-  logger::log_info(sprintf("installing missing package %s ...", to_install))
+  message(sprintf("installing missing package %s ...", to_install))
   tryCatch(
     {
       progress <- txtProgressBar(0, length(to_install), 3)
@@ -38,5 +40,7 @@ if (!length(to_install)) {
 }
 
 # github
-# install.packages("devtools")
+install.packages("devtools", dependencies = TRUE,
+          INSTALL_opts = c("--no-lock"))
 devtools::install_github("hadley/emo")
+
