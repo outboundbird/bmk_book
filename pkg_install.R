@@ -10,7 +10,14 @@ req_libs <- c(
 )
 to_install <- req_libs[!req_libs %in% env_pkgs]
 failed_pkgs <- c()
-options(repos=structure(c(CRAN="https://cran.rstudio.com/")))
+
+getOption('repos')
+options(repos = c(
+  CRANextra = 'https://macos.rbind.io',
+  CRANstudio = 'https://cran.rstudio.com',
+  CRAN ='https://CRAN.R-project.org'
+),
+download.file.method="wget")
 
 if (!length(to_install)) {
   lapply(req_libs, library, character.only = TRUE)
