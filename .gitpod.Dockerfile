@@ -1,3 +1,6 @@
 FROM gitpod/workspace-full
 
-RUN brew install R
+RUN brew upgrade && brew install -y \
+    R \
+    gcc@5 \
+    libtiff

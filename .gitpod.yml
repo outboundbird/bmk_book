@@ -3,9 +3,15 @@ image:
 
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - init: echo 'init script' # runs during prebuild
+  - init: echo 'install packages' # runs during prebuild
     # command: echo 'start script'
     command: Rscript pkg_install.R
+
+vscode:
+  extensions:
+    - TianyiShi.rmarkdown
+    - 2gua.rainbow-brackets
+    - redhat.vscode-yaml
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 # ports:
