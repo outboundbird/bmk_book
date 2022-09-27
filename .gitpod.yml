@@ -7,11 +7,11 @@ tasks:
     # command: echo 'start script'
     command: Rscript pkg_install.R
 
-vscode:
-  extensions:
-    - TianyiShi.rmarkdown
-    - 2gua.rainbow-brackets
-    - redhat.vscode-yaml
+# vscode:
+#   extensions:
+#     - TianyiShi.rmarkdown
+#     - 2gua.rainbow-brackets
+#     - redhat.vscode-yaml
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 # ports:
