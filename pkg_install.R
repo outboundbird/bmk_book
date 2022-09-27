@@ -2,17 +2,19 @@
 env_pkgs <- .packages(all.available = T)
 attached <- (.packages())
 req_libs <- c(
-  "logger",
   "jsonlite",
-  "languageserver",
+  "languageserver"
+)
+
+others <-c(  
+    "logger",
   "devtools",
   "lintr",
   "ICC.Sample.Size",
   "CVcalibration",
   "kableExtra",
   "dplyr",
-  "tidyr"
-)
+  "tidyr")
 to_install <- req_libs[!req_libs %in% env_pkgs]
 failed_pkgs <- c()
 
