@@ -3,7 +3,9 @@ env_pkgs <- .packages(all.available = T)
 attached <- (.packages())
 req_libs <- c(
   "jsonlite",
-  "languageserver"
+  "languageserver",
+  "pandoc",
+  "devtools"
 )
 
 others <-c(  
@@ -15,16 +17,19 @@ others <-c(
   "kableExtra",
   "dplyr",
   "tidyr")
+  
 to_install <- req_libs[!req_libs %in% env_pkgs]
 failed_pkgs <- c()
 
-getOption('repos')
-options(repos = c(
-  CRANextra = 'https://macos.rbind.io',
-  CRANstudio = 'https://cran.rstudio.com',
-  CRAN ='https://CRAN.R-project.org'
-),
-download.file.method="wget")
+getOption("repos")
+options(
+  repos = c(
+    CRANextra = "https://macos.rbind.io",
+    CRANstudio = "https://cran.rstudio.com",
+    CRAN = "https://CRAN.R-project.org"
+  ),
+  download.file.method = "wget"
+)
 
 if (!length(to_install)) {
   lapply(req_libs, library, character.only = TRUE)
@@ -54,7 +59,5 @@ if (!length(to_install)) {
 }
 
 # github
-install.packages("devtools", dependencies = TRUE,
-          INSTALL_opts = c("--no-lock"))
 devtools::install_github("hadley/emo")
 
