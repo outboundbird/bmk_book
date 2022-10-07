@@ -1,4 +1,4 @@
-# Cell type
+# Immunophenotyping
 ## flowcytometry data
 
 ## Cell type deconvolution
