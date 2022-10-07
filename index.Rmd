@@ -1,7 +1,7 @@
 # Preface {-}
 
-This is an evolving, never-complete note for biological marker (biomarker) analysis in the
-pharmaceutical setting. The purpose is to document the concept of each type of
+This is an evolving, never-complete notebook for biological marker (biomarker) analysis in the
+biomedical setting. The purpose is to document the concept of each type of
 biomarker and analytical approach. In general, it covers the topics of DNA, RNA, protein, and cell types analyses. It also talks about some statistical issues such as multiplicity, power calculation, detection limit, etc that one may face when analyzing biomarker data.
 
 Additionally, I provide R code examples for implementing methods. These codes are basic and
@@ -20,7 +20,7 @@ Last but not least,
 
 ### Became a data scientist {-}
 
-Towards the end of my second postdoctoral work, I decided to leave academia. Almost a decade of training in research left me nothing so handy for any industrial professions but an analytical mind and skills for learning.  Becoming a data scientist was not a coincidence. I like statistics as well as methodologies and I like to deal with data. I didn't know what data science was, but I was told that I have a data scientist profile. So I took my first non-academic job as a data scientist. 
+Towards the end of my second postdoctoral work, I decided to leave academia. Almost a decade of training in research left me nothing so handy for any industrial professions but an analytical mind and skills for learning.  Becoming a data scientist was not a coincidence. I like statistics as well as methodologies and I like to deal with data. I didn't know what data science was, but I was told that I have a data scientist profile. So I took my first non-academic job as a data scientist.
 
 
 ### How did I started programing? {-}
@@ -30,4 +30,3 @@ I was, am, will be 'lazy'. I don't like to repeat things, especially something l
 ### More background {-}
 
 You probably will understand me better by reading my blogs. Just in case this is not enough to make a professional decision, Here is my [CV](https://awesometomato.shinyapps.io/web_cv/) website. Yes, a website just for my curriculum vitae! Spoiler alert, it's boring.
-
