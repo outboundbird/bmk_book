@@ -1,0 +1,34 @@
+# Pathway analysis/ gene set enrichement analysis
+
+
+## Gene set enrichment analysis (GSEA)
+[1]A. Subramanian et al., “Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles,” PNAS, vol. 102, no. 43, pp. 15545–15550, Oct. 2005, doi: 10.1073/pnas.0506580102.
+
+## Single sample gene set enrichment analysis (ssGSEA)
+
+## Gene set variation analysis (GSVA)
+[1]S. Hänzelmann, R. Castelo, and J. Guinney, “GSVA: gene set variation analysis for microarray and RNA-Seq data,” BMC Bioinformatics, vol. 14, no. 1, p. 7, Jan. 2013, doi: 10.1186/1471-2105-14-7.
+
+## CAMERA
+
+[1]D. Wu and G. K. Smyth, “Camera: a competitive gene set test accounting for inter-gene correlation,” Nucleic Acids Research, vol. 40, no. 17, p. e133, Sep. 2012, doi: 10.1093/nar/gks461.
+
+**R implementations**
+
+[zenith](https://diseaseneurogenomics.github.io/zenith/articles/loading_genesets.html) takes the results from DEA using linear mixed effect model, which is output from [`dream`](https://academic.oup.com/bioinformatics/article/37/2/192/5878955)package. It conduct the gene set enrichment analysis as an extension of `camera` method.
+
+[1]G. Hoffman, zenith: Gene set analysis following differential expression using linear (mixed) modeling with dream. Bioconductor version: Release (3.16), 2022. doi: 10.18129/B9.bioc.zenith.
+
+
+
+## Comparisons of of gene set enrichment analysis methods
+
+### Type I error rate
+
+See Wu and Smyth paper.
+
+### power
+
+### Biological relavence
+
+[1]F. Maleki, K. L. Ovens, E. Rezaei, A. M. Rosenberg, and A. J. Kusalik, “Method Choice in Gene Set Analysis Has Important Consequences for Analysis Outcome,” p. 12, 2019.
