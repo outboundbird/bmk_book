@@ -1,49 +1,4 @@
 # Pharmacaldynamic analysis
-The following definition of Biomarkers are defined by FDA[1].
-
-**Diagnositic biomaker**
-
-> A biomarker used to detect or confirm presence of a disease or condition of
-> interest or to identify individuals with a subtype of the disease.
-
-**Monitor biomaker**
-
-> A biomarker measured repeatedly for assessing status of a disease or medical
-> condition or for evidence of exposure to (or effect of) a medical product
-> or an environmental agent.
-
-**Response Biomarker**
-
-> A biomarker used to show that a biological response, potentially beneficial or harmful, has occurred in an individual who has been exposed to a medical product or an environmental agent.
-
-<details><summary> *Pharmacodynamic biomarker*</summary>
- A response biomarker that indicates biologic activity of a medical product or environmental agent **without necessarily drawing conclusions about efficacy or disease outcome or necessarily linking this activity to an established mechanism of action**. Potential uses of a pharmacodynamic biomarker include establishing proof-of-concept, assisting in dose selection or measuring a response to medical products or environmental agents, including the use as a measure of potential harm. In some cases, such measures may be secondary endpoints in clinical trials and may be described in labeling.
-</details>
-
-<details><summary> *Surrogate endpoint biomarker*</summary>
- A response biomarker that is an **endpoint** used in clinical trials as a substitute for a direct measure of how a patient feels, functions, or survives. A surrogate endpoint does not measure the clinical benefit of primary interest in and of itself, but rather is expected to predict that clinical benefit or harm based on epidemiologic, therapeutic, pathophysiologic, or other scientificscientificscientificevidence.
- From a U.S. regulatory standpoint, surrogate endpoints and potential surrogate endpoints can be characterized by the level of clinical validation:
-
- - validated surrogate endpoint
- - reasonably likely surrogate endpoint
-</details>
-
-
-**Predictive biomaker**
-
-> A biomarker used to identify individuals who are more likely than similar individuals without the biomarker to experience a favorable or unfavorable effect from exposure to a medical product or an environmental agent.
-
-**Prognostic Biomarker**
-
-> A biomarker used to identify likelihood of a clinical event, disease recurrence or progression in patients who have the disease or medical condition of interest.
-
-
-
-
-| header | BMK + | BMK- |
-| ------ | ------ | ------ |
-|standard| a  | b  |
-|experiment| c | d  |
 
 ## Hierarchical modeling
 
@@ -58,6 +13,23 @@ j - time points
 |reference|  T1  |  $\beta_0 + \beta_2$|
 |treatment|  T1  |  $\beta_0 + \beta_2 + \beta_3$|
 
-## Reference
+```{r, echo=F}
 
-[1]FDA-NIH Biomarker Working Group, “BEST (Biomarkers, EndpointS, and other Tools) Resource,” p. 58.
+df <- data.frame(
+  time = c("t0", "t1", "t2"),
+  time_n = c(1,2,3),
+  trt = c(5, 6, 8),
+  plc = c(5, 5, 5)
+)
+df$time <- as.factor(df$time)
+plot(df$time_n, df$trt,
+  xaxt = 'n', type = "b",
+  ylim = c(0, 8),
+  xlab = "Time",
+  ylab = "Response"
+)
+axis(side = 1, at = df$time_n, labels = df$time)
+points(df$plc, type = "b", pch = 16)
+legend("bottomleft", c("Treatment","Standard"),pch = c(1, 16))
+```
+
