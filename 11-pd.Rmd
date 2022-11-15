@@ -1,4 +1,5 @@
 # Pharmacaldynamic analysis
+The following definition of Biomarkers are defined by FDA[1].
 
 **Diagnositic biomaker**
 
@@ -15,13 +16,18 @@
 
 > A biomarker used to show that a biological response, potentially beneficial or harmful, has occurred in an individual who has been exposed to a medical product or an environmental agent.
 
-> - Pharmacodynamic biomarker: A response biomarker that indicates biologic activity of a medical product or environmental agent without necessarily drawing conclusions about efficacy or disease outcome or necessarily linking this activity to an established mechanism of action. Potential uses of a pharmacodynamic biomarker include establishing proof-of-concept, assisting in dose selection or measuring a response to medical products or environmental agents, including the use as a measure of potential harm. In some cases, such measures may be secondary endpoints in clinical trials and may be described in labeling.
+<details><summary> *Pharmacodynamic biomarker*</summary>
+ A response biomarker that indicates biologic activity of a medical product or environmental agent **without necessarily drawing conclusions about efficacy or disease outcome or necessarily linking this activity to an established mechanism of action**. Potential uses of a pharmacodynamic biomarker include establishing proof-of-concept, assisting in dose selection or measuring a response to medical products or environmental agents, including the use as a measure of potential harm. In some cases, such measures may be secondary endpoints in clinical trials and may be described in labeling.
+</details>
 
-> - Surrogate endpoint biomarker: A response biomarker that is an endpoint used in clinical trials as a substitute for a direct measure of how a patient feels, functions, or survives. A surrogate endpoint does not measure the clinical benefit of primary interest in and of itself, but rather is expected to predict that clinical benefit or harm based on epidemiologic, therapeutic, pathophysiologic, or other scientificscientificscientificevidence.
-> From a U.S. regulatory standpoint, surrogate endpoints and potential surrogate endpoints can be characterized by the level of clinical validation:
+<details><summary> *Surrogate endpoint biomarker*</summary>
+ A response biomarker that is an **endpoint** used in clinical trials as a substitute for a direct measure of how a patient feels, functions, or survives. A surrogate endpoint does not measure the clinical benefit of primary interest in and of itself, but rather is expected to predict that clinical benefit or harm based on epidemiologic, therapeutic, pathophysiologic, or other scientificscientificscientificevidence.
+ From a U.S. regulatory standpoint, surrogate endpoints and potential surrogate endpoints can be characterized by the level of clinical validation:
 
-> - validated surrogate endpoint
-> - reasonably likely surrogate endpoint
+ - validated surrogate endpoint
+ - reasonably likely surrogate endpoint
+</details>
+
 
 **Predictive biomaker**
 
@@ -31,7 +37,7 @@
 
 > A biomarker used to identify likelihood of a clinical event, disease recurrence or progression in patients who have the disease or medical condition of interest.
 
-[1]FDA-NIH Biomarker Working Group, “BEST (Biomarkers, EndpointS, and other Tools) Resource,” p. 58.
+
 
 
 | header | BMK + | BMK- |
@@ -51,3 +57,7 @@ j - time points
 |treatment|  T0  |  $\beta_0 + \beta_1$ |
 |reference|  T1  |  $\beta_0 + \beta_2$|
 |treatment|  T1  |  $\beta_0 + \beta_2 + \beta_3$|
+
+## Reference
+
+[1]FDA-NIH Biomarker Working Group, “BEST (Biomarkers, EndpointS, and other Tools) Resource,” p. 58.
