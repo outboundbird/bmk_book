@@ -11,12 +11,6 @@
 
 ## Differential co-expression analysis
 
-## Pathway analysis
+[1]G. G. Lemoine, M.-P. Scott-Boyer, B. Ambroise, O. Périn, and A. Droit, “GWENA: gene co-expression networks analysis and extended modules characterization in a single Bioconductor package,” BMC Bioinformatics, vol. 22, no. 1, p. 267, May 2021, doi: 10.1186/s12859-021-04179-4.
 
-### Gene set enrichment analysis (GSEA)
-
-### Single sample gene set enrichment analysis (ssGSEA)
-
-### Gene set variation analysis (GSVA)
-
-## Clustering
+[1]S. Horvath, “Weighted Gene Co-Expression Network Analysis,” p. 64, 2006.

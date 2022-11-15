@@ -1,0 +1,35 @@
+# Pharmacaldynamic analysis
+
+## Hierarchical modeling
+
+$$Y_{ij} = \beta_0+ \beta_1 Group + \beta_2 Time + \beta_3 Group \times time + \epsilon_{ij}$$
+i - subject;
+j - time points
+
+| Group | Time |  coeff|
+| ------ | ------ |-----|
+|reference|  T0  |  $\beta_0$   |
+|treatment|  T0  |  $\beta_0 + \beta_1$ |
+|reference|  T1  |  $\beta_0 + \beta_2$|
+|treatment|  T1  |  $\beta_0 + \beta_2 + \beta_3$|
+
+```{r, echo=F}
+
+df <- data.frame(
+  time = c("t0", "t1", "t2"),
+  time_n = c(1,2,3),
+  trt = c(5, 6, 8),
+  plc = c(5, 5, 5)
+)
+df$time <- as.factor(df$time)
+plot(df$time_n, df$trt,
+  xaxt = 'n', type = "b",
+  ylim = c(0, 8),
+  xlab = "Time",
+  ylab = "Response"
+)
+axis(side = 1, at = df$time_n, labels = df$time)
+points(df$plc, type = "b", pch = 16)
+legend("bottomleft", c("Treatment","Standard"),pch = c(1, 16))
+```
+
