@@ -7,4 +7,9 @@ Multiple comparison in omic data setting.
 
 ## False discovery rate (FDR)
 
+### Adjusted p-value
+BH
+
+q value
+
 ## Local FDR
