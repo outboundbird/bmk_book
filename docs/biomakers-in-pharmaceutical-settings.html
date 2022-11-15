@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Pharmacogenetics analysis | _main.knit</title>
+  <title>3 Biomakers in pharmaceutical settings | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Pharmacogenetics analysis | _main.knit" />
+  <meta property="og:title" content="3 Biomakers in pharmaceutical settings | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Pharmacogenetics analysis | _main.knit" />
+  <meta name="twitter:title" content="3 Biomakers in pharmaceutical settings | _main.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="proteinomics.html"/>
-<link rel="next" href="multiplicity.html"/>
+<link rel="prev" href="biology.html"/>
+<link rel="next" href="immunophenotyping.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -252,77 +252,88 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pharmacogenetics-analysis" class="section level1 hasAnchor">
-<h1><span class="header-section-number">8</span> Pharmacogenetics analysis<a href="pharmacogenetics-analysis.html#pharmacogenetics-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="basic-genetic-concepts" class="section level2 hasAnchor">
-<h2><span class="header-section-number">8.1</span> Basic genetic concepts<a href="pharmacogenetics-analysis.html#basic-genetic-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="biomakers-in-pharmaceutical-settings" class="section level1 hasAnchor">
+<h1><span class="header-section-number">3</span> Biomakers in pharmaceutical settings<a href="biomakers-in-pharmaceutical-settings.html#biomakers-in-pharmaceutical-settings" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The following definition of Biomarkers are defined by FDA[1].</p>
+<p><strong>Diagnositic biomaker</strong></p>
+<blockquote>
+<p>A biomarker used to detect or confirm presence of a disease or condition of
+interest or to identify individuals with a subtype of the disease.</p>
+</blockquote>
+<p><strong>Monitor biomaker</strong></p>
+<blockquote>
+<p>A biomarker measured repeatedly for assessing status of a disease or medical
+condition or for evidence of exposure to (or effect of) a medical product
+or an environmental agent.</p>
+</blockquote>
+<p><strong>Response Biomarker</strong></p>
+<blockquote>
+<p>A biomarker used to show that a biological response, potentially beneficial or harmful, has occurred in an individual who has been exposed to a medical product or an environmental agent.</p>
+</blockquote>
+<details>
+<p><summary> <em>Pharmacodynamic biomarker</em></summary>
+A response biomarker that indicates biologic activity of a medical product or environmental agent <strong>without necessarily drawing conclusions about efficacy or disease outcome or necessarily linking this activity to an established mechanism of action</strong>. Potential uses of a pharmacodynamic biomarker include establishing proof-of-concept, assisting in dose selection or measuring a response to medical products or environmental agents, including the use as a measure of potential harm. In some cases, such measures may be secondary endpoints in clinical trials and may be described in labeling.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</details>
+<details>
+<p><summary> <em>Surrogate endpoint biomarker</em></summary>
+A response biomarker that is an <strong>endpoint</strong> used in clinical trials as a substitute for a direct measure of how a patient feels, functions, or survives. A surrogate endpoint does not measure the clinical benefit of primary interest in and of itself, but rather is expected to predict that clinical benefit or harm based on epidemiologic, therapeutic, pathophysiologic, or other scientificscientificscientificevidence.
+From a U.S. regulatory standpoint, surrogate endpoints and potential surrogate endpoints can be characterized by the level of clinical validation:</p>
 <ul>
-<li>gene</li>
+<li>validated surrogate endpoint</li>
+<li>reasonably likely surrogate endpoint</li>
 </ul>
-</div>
-<div id="pharmacoscan" class="section level2 hasAnchor">
-<h2><span class="header-section-number">8.2</span> Pharmacoscan<a href="pharmacogenetics-analysis.html#pharmacoscan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Samples were genotyped using a microarray platform (PharmacoScan™) that targets genetic variants reported to be associated with adverse drug reactions. The array contains more than 18,000 variants (single nucleotide polymorphisms (SNPs), insertions and deletions, copy number variants) for genes that have been associated with adverse drug reactions, including DILI, and are involved in the processes of drug absorption, distribution, metabolism, excretion (ADME genes) and antigen presentation (ie, HLA genes). The panel includes 927 HLA-related variants.</p>
-<p>File format for genomewide analysis</p>
-<ul>
-<li><code>map</code>, <code>ped</code> files</li>
-<li><code>vcf</code> files</li>
-</ul>
-<div id="software-for-analysis" class="section level3 hasAnchor">
-<h3><span class="header-section-number">8.2.1</span> Software for analysis<a href="pharmacogenetics-analysis.html#software-for-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>PLINK</li>
-<li>R
-<ul>
-<li>reading vcf files: <a href="https://knausb.github.io/vcfR_documentation/index.html"><code>vcfR</code></a></li>
-</ul></li>
-</ul>
-</div>
-<div id="single-nucleotide-variant-data" class="section level3 hasAnchor">
-<h3><span class="header-section-number">8.2.2</span> Single nucleotide variant data<a href="pharmacogenetics-analysis.html#single-nucleotide-variant-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-</div>
-<div id="hla-region-targeted-sequencing" class="section level2 hasAnchor">
-<h2><span class="header-section-number">8.3</span> HLA region targeted sequencing<a href="pharmacogenetics-analysis.html#hla-region-targeted-sequencing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+</details>
+<p><strong>Predictive biomaker</strong></p>
+<blockquote>
+<p>A biomarker used to identify individuals who are more likely than similar individuals without the biomarker to experience a favorable or unfavorable effect from exposure to a medical product or an environmental agent.</p>
+</blockquote>
+<p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<strong>Prognostic Biomarker</strong></p>
+<blockquote>
+<p>A biomarker used to identify likelihood of a clinical event, disease recurrence or progression in patients who have the disease or medical condition of interest.</p>
+</blockquote>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><strong>Illustration of the difference between progonostic and predictive biomarker</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Treatment</th>
+<th>BMK +</th>
+<th>BMK-</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>standard</td>
+<td>a</td>
+<td>b</td>
+</tr>
+<tr class="even">
+<td>experiment</td>
+<td>c</td>
+<td>d</td>
+</tr>
+</tbody>
+</table>
+<p>According toFDA-NIH Biomarker Working Group, <a href="https://www.ncbi.nlm.nih.gov/books/NBK402284/">BEST (Biomarkers, EndpointS, and other Tools) Resource</a></p>
+<p><img src="https://www.ncbi.nlm.nih.gov/books/NBK402284/bin/prognostic_predictive-Image001.jpg" /></p>
 <div class="figure">
-<img src="misc/hla_map_1000px.png" alt="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5610566/" />
-<p class="caption"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5610566/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5610566/</a></p>
+<img src="https://www.ncbi.nlm.nih.gov/books/NBK402284/bin/prognostic_predictive-Image002.jpg" alt="Example of a biomarker that is prognostic but not predictive. Assume that patients have been randomized to the experimental and standard therapies. A) For patients receiving the experimental therapy, those who are positive for the biomarker (black curve) survive longer than those who are negative for the biomarker (gray curve). B) The biomarker is associated with the same difference in survival for those patients receiving the standard therapy (black dashed curve versus gray dashed curve); therefore, it is prognostic. The biomarker is not predictive for benefit of the experimental therapy (solid curves) relative to the standard therapy (dashed curves) because within each biomarker subgroup the survival distribution is the same regardless of treatment received. source:https://www.ncbi.nlm.nih.gov/books/NBK402284/figure/prognostic_predictive.F1/?report=objectonly" />
+<p class="caption">Example of a biomarker that is prognostic but not predictive. Assume that patients have been randomized to the experimental and standard therapies. A) For patients receiving the experimental therapy, those who are positive for the biomarker (black curve) survive longer than those who are negative for the biomarker (gray curve). B) The biomarker is associated with the same difference in survival for those patients receiving the standard therapy (black dashed curve versus gray dashed curve); therefore, it is prognostic. The biomarker is not predictive for benefit of the experimental therapy (solid curves) relative to the standard therapy (dashed curves) because within each biomarker subgroup the survival distribution is the same regardless of treatment received. source:<a href="https://www.ncbi.nlm.nih.gov/books/NBK402284/figure/prognostic_predictive.F1/?report=objectonly" class="uri">https://www.ncbi.nlm.nih.gov/books/NBK402284/figure/prognostic_predictive.F1/?report=objectonly</a></p>
 </div>
-<p>Labcorp Drug Development performed targeted sequencing of HLA region genes. A next-generation sequencing approach based on the GenDX NGSgo MX11-3 kit™ that provides full coverage of Class I and II HLA genes at high resolution, with the exception of DRB4, was used. For Class I HLA genes A, B, and C, exons 1 through 8 were sequenced. For Class II genes DRB1, DRB3, DRB4, DRB5, DQA1, DQB1, DPA1, and DPB1, exons 1 through 6 were sequenced, with the exception of DRB4, where exons 2 and 3 were sequenced. Exons 2 and 3 code for the peptide binding domain of class I HLA, and exon 3 codes for the peptide domain of class II HLA.</p>
-<div id="hla-nomenclature-and-sequencing-output" class="section level3 hasAnchor">
-<h3><span class="header-section-number">8.3.1</span> HLA nomenclature and sequencing output<a href="pharmacogenetics-analysis.html#hla-nomenclature-and-sequencing-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="hla-allele-naming-nomenclature" class="section level4 hasAnchor">
-<h4><span class="header-section-number">8.3.1.1</span> HLA allele naming nomenclature<a href="pharmacogenetics-analysis.html#hla-allele-naming-nomenclature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="misc/hla_allele_naming.jpg" />
-<img src="misc/hla_norm.png" alt="http://hla.alleles.org/nomenclature/naming.html" /></p>
-<ul>
-<li>The suffix ‘L’ is used to indicate an allele which has been shown to have ‘Low’ cell surface expression when compared to normal levels.</li>
-<li>The ‘S’ suffix is used to denote an allele specifying a protein which is expressed as a soluble, ‘Secreted’ molecule but is not present on the cell surface.</li>
-<li>The ‘C’ suffix is assigned to alleles that produce proteins that are present in the ‘Cytoplasm’ and not on the cell surface.</li>
-<li>An ‘A’ suffix indicates an ‘Aberrant’ expression where there is some doubt as to whether a protein is actually expressed.</li>
-<li>A ‘Q’ suffix is used when the expression of an allele is ‘Questionable’, given that the mutation seen in the allele has been shown to affect normal expression levels in other alleles.
-Alleles that have been shown not to be expressed - ‘Null’ alleles - have been given the suffix ‘N’.</li>
-</ul>
+<div class="figure">
+<img src="https://www.ncbi.nlm.nih.gov/books/NBK402284/bin/prognostic_predictive-Image005.jpg" alt="Example of a predictive biomarker that exhibits a quantitative treatment-by-biomarker statistical interaction. Assume that patients have been randomized to the experimental and standard therapies. Within each biomarker subgroup (black curves for biomarker positive and gray curves for biomarker negative), survival is substantially longer for patients who receive the experimental therapy (solid curves) compared to standard therapy (dashed curves). The magnitude of the increase in survival for those receiving experimental therapy compared to standard therapy is numerically larger for those who are positive for the biomarker than for those who are negative for the biomarker." />
+<p class="caption">Example of a predictive biomarker that exhibits a quantitative treatment-by-biomarker statistical interaction. Assume that patients have been randomized to the experimental and standard therapies. Within each biomarker subgroup (black curves for biomarker positive and gray curves for biomarker negative), survival is substantially longer for patients who receive the experimental therapy (solid curves) compared to standard therapy (dashed curves). The magnitude of the increase in survival for those receiving experimental therapy compared to standard therapy is numerically larger for those who are positive for the biomarker than for those who are negative for the biomarker.</p>
 </div>
-<div id="sequencing-resolution" class="section level4 hasAnchor">
-<h4><span class="header-section-number">8.3.1.2</span> Sequencing resolution<a href="pharmacogenetics-analysis.html#sequencing-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<ul>
-<li>High resolution
-A high-resolution typing result is defined as a set of alleles that encode the same protein sequence for the region of the HLA molecule called the antigen binding site and that exclude alleles that are not expressed as cell-surface proteins. The antigen binding site includes domain 1 and domain 2 of the class I α polypeptides, and domain 1 of the class II α and domain 1 of the class II β polypeptide chains.</li>
-<li>Low resolution
-A DNA-based typing result at the level of the digits composing the first field in the DNA-based nomenclature. Examples include: A<em>01; A</em>02. If the resolution corresponds to a serologic equivalent, this typing result should also be called low resolution.</li>
-<li>Other levels of resolution
-If high resolution cannot be obtained or if the laboratory’s agreement with the entity requesting the testing limits the typing efforts to a subset of alleles, the laboratory may report its results at a level of resolution that falls between high resolution and low resolution. Examples are to consider only those alleles expected to be found in the local population or that are designated as common and well defined.3 A third example is typing that assigns a G group designation (eg, A*02:01:01G).</li>
-</ul>
+<div class="figure">
+<img src="https://www.ncbi.nlm.nih.gov/books/NBK402284/bin/prognostic_predictive-Image006.jpg" alt="Example of a predictive biomarker that exhibits a qualitative treatment-by-biomarker statistical interaction. Assume that patients have been randomized to the experimental and standard therapies. For patients who are positive for the biomarker (black curves), survival is substantially longer for patients who receive the experimental therapy (solid black curve) compared to standard therapy (dashed black curve); whereas, for patients who are negative for the biomarker (gray curves), survival is about the same or slightly shorter for patients who receive the experimental therapy (solid gray curve) compared to standard therapy (dashed gray curve)." />
+<p class="caption">Example of a predictive biomarker that exhibits a qualitative treatment-by-biomarker statistical interaction. Assume that patients have been randomized to the experimental and standard therapies. For patients who are positive for the biomarker (black curves), survival is substantially longer for patients who receive the experimental therapy (solid black curve) compared to standard therapy (dashed black curve); whereas, for patients who are negative for the biomarker (gray curves), survival is about the same or slightly shorter for patients who receive the experimental therapy (solid gray curve) compared to standard therapy (dashed gray curve).</p>
 </div>
-</div>
-<div id="drb1-and-drb3drb4drb5" class="section level3 hasAnchor">
-<h3><span class="header-section-number">8.3.2</span> DRB1 and DRB3/DRB4/DRB5<a href="pharmacogenetics-analysis.html#drb1-and-drb3drb4drb5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="misc/drb_arch.png" /></p>
-</div>
-</div>
-<div id="reference-1" class="section level2 hasAnchor">
-<h2><span class="header-section-number">8.4</span> Reference<a href="pharmacogenetics-analysis.html#reference-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="reference" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.1</span> Reference<a href="biomakers-in-pharmaceutical-settings.html#reference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>[1]FDA-NIH Biomarker Working Group, “BEST (Biomarkers, EndpointS, and other Tools) Resource,” p. 58.</p>
 
 </div>
 </div>
@@ -331,8 +342,8 @@ If high resolution cannot be obtained or if the laboratory’s agreement with th
           </div>
         </div>
       </div>
-<a href="proteinomics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multiplicity.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="biology.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="immunophenotyping.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
