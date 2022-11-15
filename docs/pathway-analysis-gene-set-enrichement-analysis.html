@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Pharmacogenetics analysis | _main.knit</title>
+  <title>13 Pathway analysis/ gene set enrichement analysis | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Pharmacogenetics analysis | _main.knit" />
+  <meta property="og:title" content="13 Pathway analysis/ gene set enrichement analysis | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Pharmacogenetics analysis | _main.knit" />
+  <meta name="twitter:title" content="13 Pathway analysis/ gene set enrichement analysis | _main.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="proteinomics.html"/>
-<link rel="next" href="multiplicity.html"/>
+<link rel="prev" href="pharmacaldynamic-analysis.html"/>
+<link rel="next" href="visualization.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -252,78 +252,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pharmacogenetics-analysis" class="section level1 hasAnchor">
-<h1><span class="header-section-number">8</span> Pharmacogenetics analysis<a href="pharmacogenetics-analysis.html#pharmacogenetics-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="basic-genetic-concepts" class="section level2 hasAnchor">
-<h2><span class="header-section-number">8.1</span> Basic genetic concepts<a href="pharmacogenetics-analysis.html#basic-genetic-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>gene</li>
-</ul>
+<div id="pathway-analysis-gene-set-enrichement-analysis" class="section level1 hasAnchor">
+<h1><span class="header-section-number">13</span> Pathway analysis/ gene set enrichement analysis<a href="pathway-analysis-gene-set-enrichement-analysis.html#pathway-analysis-gene-set-enrichement-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="gene-set-enrichment-analysis-gsea" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.1</span> Gene set enrichment analysis (GSEA)<a href="pathway-analysis-gene-set-enrichement-analysis.html#gene-set-enrichment-analysis-gsea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>[1]A. Subramanian et al., “Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles,” PNAS, vol. 102, no. 43, pp. 15545–15550, Oct. 2005, doi: 10.1073/pnas.0506580102.</p>
 </div>
-<div id="pharmacoscan" class="section level2 hasAnchor">
-<h2><span class="header-section-number">8.2</span> Pharmacoscan<a href="pharmacogenetics-analysis.html#pharmacoscan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Samples were genotyped using a microarray platform (PharmacoScan™) that targets genetic variants reported to be associated with adverse drug reactions. The array contains more than 18,000 variants (single nucleotide polymorphisms (SNPs), insertions and deletions, copy number variants) for genes that have been associated with adverse drug reactions, including DILI, and are involved in the processes of drug absorption, distribution, metabolism, excretion (ADME genes) and antigen presentation (ie, HLA genes). The panel includes 927 HLA-related variants.</p>
-<p>File format for genomewide analysis</p>
-<ul>
-<li><code>map</code>, <code>ped</code> files</li>
-<li><code>vcf</code> files</li>
-</ul>
-<div id="software-for-analysis" class="section level3 hasAnchor">
-<h3><span class="header-section-number">8.2.1</span> Software for analysis<a href="pharmacogenetics-analysis.html#software-for-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>PLINK</li>
-<li>R
-<ul>
-<li>reading vcf files: <a href="https://knausb.github.io/vcfR_documentation/index.html"><code>vcfR</code></a></li>
-</ul></li>
-</ul>
+<div id="single-sample-gene-set-enrichment-analysis-ssgsea" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.2</span> Single sample gene set enrichment analysis (ssGSEA)<a href="pathway-analysis-gene-set-enrichement-analysis.html#single-sample-gene-set-enrichment-analysis-ssgsea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="single-nucleotide-variant-data" class="section level3 hasAnchor">
-<h3><span class="header-section-number">8.2.2</span> Single nucleotide variant data<a href="pharmacogenetics-analysis.html#single-nucleotide-variant-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="gene-set-variation-analysis-gsva" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.3</span> Gene set variation analysis (GSVA)<a href="pathway-analysis-gene-set-enrichement-analysis.html#gene-set-variation-analysis-gsva" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>[1]S. Hänzelmann, R. Castelo, and J. Guinney, “GSVA: gene set variation analysis for microarray and RNA-Seq data,” BMC Bioinformatics, vol. 14, no. 1, p. 7, Jan. 2013, doi: 10.1186/1471-2105-14-7.</p>
 </div>
+<div id="camera" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.4</span> CAMERA<a href="pathway-analysis-gene-set-enrichement-analysis.html#camera" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>[1]D. Wu and G. K. Smyth, “Camera: a competitive gene set test accounting for inter-gene correlation,” Nucleic Acids Research, vol. 40, no. 17, p. e133, Sep. 2012, doi: 10.1093/nar/gks461.</p>
+<p><strong>R implementations</strong></p>
+<p><a href="https://diseaseneurogenomics.github.io/zenith/articles/loading_genesets.html">zenith</a> takes the results from DEA using linear mixed effect model, which is output from <a href="https://academic.oup.com/bioinformatics/article/37/2/192/5878955"><code>dream</code></a>package. It conduct the gene set enrichment analysis as an extension of <code>camera</code> method.</p>
+<p>[1]G. Hoffman, zenith: Gene set analysis following differential expression using linear (mixed) modeling with dream. Bioconductor version: Release (3.16), 2022. doi: 10.18129/B9.bioc.zenith.</p>
 </div>
-<div id="hla-region-targeted-sequencing" class="section level2 hasAnchor">
-<h2><span class="header-section-number">8.3</span> HLA region targeted sequencing<a href="pharmacogenetics-analysis.html#hla-region-targeted-sequencing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="figure">
-<img src="misc/hla_map_1000px.png" alt="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5610566/" />
-<p class="caption"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5610566/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5610566/</a></p>
+<div id="comparisons-of-of-gene-set-enrichment-analysis-methods" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.5</span> Comparisons of of gene set enrichment analysis methods<a href="pathway-analysis-gene-set-enrichement-analysis.html#comparisons-of-of-gene-set-enrichment-analysis-methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="type-i-error-rate" class="section level3 hasAnchor">
+<h3><span class="header-section-number">13.5.1</span> Type I error rate<a href="pathway-analysis-gene-set-enrichement-analysis.html#type-i-error-rate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>See Wu and Smyth paper.</p>
 </div>
-<p>Labcorp Drug Development performed targeted sequencing of HLA region genes. A next-generation sequencing approach based on the GenDX NGSgo MX11-3 kit™ that provides full coverage of Class I and II HLA genes at high resolution, with the exception of DRB4, was used. For Class I HLA genes A, B, and C, exons 1 through 8 were sequenced. For Class II genes DRB1, DRB3, DRB4, DRB5, DQA1, DQB1, DPA1, and DPB1, exons 1 through 6 were sequenced, with the exception of DRB4, where exons 2 and 3 were sequenced. Exons 2 and 3 code for the peptide binding domain of class I HLA, and exon 3 codes for the peptide domain of class II HLA.</p>
-<div id="hla-nomenclature-and-sequencing-output" class="section level3 hasAnchor">
-<h3><span class="header-section-number">8.3.1</span> HLA nomenclature and sequencing output<a href="pharmacogenetics-analysis.html#hla-nomenclature-and-sequencing-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="hla-allele-naming-nomenclature" class="section level4 hasAnchor">
-<h4><span class="header-section-number">8.3.1.1</span> HLA allele naming nomenclature<a href="pharmacogenetics-analysis.html#hla-allele-naming-nomenclature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="misc/hla_allele_naming.jpg" />
-<img src="misc/hla_norm.png" alt="http://hla.alleles.org/nomenclature/naming.html" /></p>
-<ul>
-<li>The suffix ‘L’ is used to indicate an allele which has been shown to have ‘Low’ cell surface expression when compared to normal levels.</li>
-<li>The ‘S’ suffix is used to denote an allele specifying a protein which is expressed as a soluble, ‘Secreted’ molecule but is not present on the cell surface.</li>
-<li>The ‘C’ suffix is assigned to alleles that produce proteins that are present in the ‘Cytoplasm’ and not on the cell surface.</li>
-<li>An ‘A’ suffix indicates an ‘Aberrant’ expression where there is some doubt as to whether a protein is actually expressed.</li>
-<li>A ‘Q’ suffix is used when the expression of an allele is ‘Questionable’, given that the mutation seen in the allele has been shown to affect normal expression levels in other alleles.
-Alleles that have been shown not to be expressed - ‘Null’ alleles - have been given the suffix ‘N’.</li>
-</ul>
+<div id="power" class="section level3 hasAnchor">
+<h3><span class="header-section-number">13.5.2</span> power<a href="pathway-analysis-gene-set-enrichement-analysis.html#power" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="sequencing-resolution" class="section level4 hasAnchor">
-<h4><span class="header-section-number">8.3.1.2</span> Sequencing resolution<a href="pharmacogenetics-analysis.html#sequencing-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<ul>
-<li>High resolution
-A high-resolution typing result is defined as a set of alleles that encode the same protein sequence for the region of the HLA molecule called the antigen binding site and that exclude alleles that are not expressed as cell-surface proteins. The antigen binding site includes domain 1 and domain 2 of the class I α polypeptides, and domain 1 of the class II α and domain 1 of the class II β polypeptide chains.</li>
-<li>Low resolution
-A DNA-based typing result at the level of the digits composing the first field in the DNA-based nomenclature. Examples include: A<em>01; A</em>02. If the resolution corresponds to a serologic equivalent, this typing result should also be called low resolution.</li>
-<li>Other levels of resolution
-If high resolution cannot be obtained or if the laboratory’s agreement with the entity requesting the testing limits the typing efforts to a subset of alleles, the laboratory may report its results at a level of resolution that falls between high resolution and low resolution. Examples are to consider only those alleles expected to be found in the local population or that are designated as common and well defined.3 A third example is typing that assigns a G group designation (eg, A*02:01:01G).</li>
-</ul>
-</div>
-</div>
-<div id="drb1-and-drb3drb4drb5" class="section level3 hasAnchor">
-<h3><span class="header-section-number">8.3.2</span> DRB1 and DRB3/DRB4/DRB5<a href="pharmacogenetics-analysis.html#drb1-and-drb3drb4drb5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="misc/drb_arch.png" /></p>
-</div>
-</div>
-<div id="reference-1" class="section level2 hasAnchor">
-<h2><span class="header-section-number">8.4</span> Reference<a href="pharmacogenetics-analysis.html#reference-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="biological-relavence" class="section level3 hasAnchor">
+<h3><span class="header-section-number">13.5.3</span> Biological relavence<a href="pathway-analysis-gene-set-enrichement-analysis.html#biological-relavence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>[1]F. Maleki, K. L. Ovens, E. Rezaei, A. M. Rosenberg, and A. J. Kusalik, “Method Choice in Gene Set Analysis Has Important Consequences for Analysis Outcome,” p. 12, 2019.</p>
 
+</div>
+</div>
+<div id="clustering-analysis" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.6</span> Clustering analysis<a href="pathway-analysis-gene-set-enrichement-analysis.html#clustering-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="low-dimensional-clustering" class="section level3 hasAnchor">
+<h3><span class="header-section-number">13.6.1</span> Low dimensional clustering<a href="pathway-analysis-gene-set-enrichement-analysis.html#low-dimensional-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="high-dimensional-clustering" class="section level3 hasAnchor">
+<h3><span class="header-section-number">13.6.2</span> High dimensional clustering<a href="pathway-analysis-gene-set-enrichement-analysis.html#high-dimensional-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+</div>
 </div>
 </div>
             </section>
@@ -331,8 +303,8 @@ If high resolution cannot be obtained or if the laboratory’s agreement with th
           </div>
         </div>
       </div>
-<a href="proteinomics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multiplicity.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pharmacaldynamic-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
