@@ -1,4 +1,16 @@
 # Pharmacaldynamic analysis
+## Variance covariance in repeated measures
+
+Study deisgn: before and after
+Measure the same outcome before and after intervention. Interested in the change before and after the intervention **within the same subject**. We have
+$$Var(Y_{i2}- Y_{i1}) = Var(Y_{i1}) + Var(Y_{i2})- Cov(Y_{i1}, Y_{i2}) \\ = \sigma_1^2 +\sigma_2^2- 2\sigma_{12}\\
+= \sigma_1^2 +\sigma_2^2- 2 \rho_{12} \sigma_1 \sigma_2$$
+
+Comparing to the measurement **between two independent subjects**, we have $\sigma_{12} =0$, which reduce the the variance $Y_{i2}- Y_{i1}$ to $\sigma_1^2 +\sigma_2^2$
+
+**Assuming** the vriance of **response** is constant across time. We have $\sigma_1^2 =\sigma_2^2 = \sigma^2$, which reduce the within subject variance into $2 \sigma^2(1-\rho)$
+
+This property gives us the ratio of within-subject/ between-subject variance: $\frac{within-subject}{between-subject} = 1- \rho$
 
 ## Hierarchical modeling
 
@@ -32,4 +44,3 @@ axis(side = 1, at = df$time_n, labels = df$time)
 points(df$plc, type = "b", pch = 16)
 legend("bottomleft", c("Treatment","Standard"),pch = c(1, 16))
 ```
-
