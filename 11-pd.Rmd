@@ -13,6 +13,22 @@ Comparing to the measurement **between two independent subjects**, we have $\sig
 This property gives us the ratio of within-subject/ between-subject variance: $\frac{within-subject}{between-subject} = 1- \rho$
 
 ## Hierarchical modeling
+### GEE vs. GLMM
+Generalized estimating equations(GEE)
+Generalized Linear Mixed Model (GLMM)
+
+```{r}
+library(tidyr)
+data(world_bank_pop)
+pop2 <- world_bank_pop %>%
+  pivot_longer(`2000`:`2017`, names_to = "year", values_to = "value") %>%
+  dplyr::filter(
+    indicator == "SP.POP.TOTL",
+    year <= 2005
+  )
+dim(pop2)
+table(world_bank_pop$indicator)
+```
 
 $$Y_{ij} = \beta_0+ \beta_1 Group + \beta_2 Time + \beta_3 Group \times time + \epsilon_{ij}$$
 i - subject;
