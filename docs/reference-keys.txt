@@ -63,7 +63,9 @@ ros
 mle
 comparisons-of-the-methods
 pharmacaldynamic-analysis
+variance-covariance-in-repeated-measures
 hierarchical-modeling
+gee-vs.-glmm
 pathway-analysis-gene-set-enrichement-analysis
 gene-set-enrichment-analysis-gsea
 single-sample-gene-set-enrichment-analysis-ssgsea

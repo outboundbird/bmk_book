@@ -209,7 +209,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.4" data-path="detection-limit-of-assays.html"><a href="detection-limit-of-assays.html#comparisons-of-the-methods"><i class="fa fa-check"></i><b>11.4</b> Comparisons of the methods</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="pharmacaldynamic-analysis.html"><a href="pharmacaldynamic-analysis.html"><i class="fa fa-check"></i><b>12</b> Pharmacaldynamic analysis</a><ul>
-<li class="chapter" data-level="12.1" data-path="pharmacaldynamic-analysis.html"><a href="pharmacaldynamic-analysis.html#hierarchical-modeling"><i class="fa fa-check"></i><b>12.1</b> Hierarchical modeling</a></li>
+<li class="chapter" data-level="12.1" data-path="pharmacaldynamic-analysis.html"><a href="pharmacaldynamic-analysis.html#variance-covariance-in-repeated-measures"><i class="fa fa-check"></i><b>12.1</b> Variance covariance in repeated measures</a></li>
+<li class="chapter" data-level="12.2" data-path="pharmacaldynamic-analysis.html"><a href="pharmacaldynamic-analysis.html#hierarchical-modeling"><i class="fa fa-check"></i><b>12.2</b> Hierarchical modeling</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="pharmacaldynamic-analysis.html"><a href="pharmacaldynamic-analysis.html#gee-vs.-glmm"><i class="fa fa-check"></i><b>12.2.1</b> GEE vs. GLMM</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="pathway-analysis-gene-set-enrichement-analysis.html"><a href="pathway-analysis-gene-set-enrichement-analysis.html"><i class="fa fa-check"></i><b>13</b> Pathway analysis/ gene set enrichement analysis</a><ul>
 <li class="chapter" data-level="13.1" data-path="pathway-analysis-gene-set-enrichement-analysis.html"><a href="pathway-analysis-gene-set-enrichement-analysis.html#gene-set-enrichment-analysis-gsea"><i class="fa fa-check"></i><b>13.1</b> Gene set enrichment analysis (GSEA)</a></li>
@@ -262,8 +265,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> False discovery rate (FDR)<a href="multiplicity.html#false-discovery-rate-fdr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="adjusted-p-value" class="section level3 hasAnchor">
 <h3><span class="header-section-number">9.2.1</span> Adjusted p-value<a href="multiplicity.html#adjusted-p-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>BH</p>
-<p>q value</p>
+<p>Benjamini-Hocheberg adjusted p-value (controling FDR)</p>
+<p>q value (estimating p value.)</p>
+<p>The difference between BH adjusted p-value and q value by <a href="https://support.bioconductor.org/p/49864/">Gordon Smyth et al</a> on Bioconductor forum.</p>
 </div>
 </div>
 <div id="local-fdr" class="section level2 hasAnchor">
