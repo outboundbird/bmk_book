@@ -15,3 +15,4 @@ q value (estimating  p value.)
 The difference between BH adjusted p-value and q value by [Gordon Smyth et al](https://support.bioconductor.org/p/49864/) on Bioconductor forum.
 
 ## Local FDR
+The original paper by [Matthew Stephens](https://academic.oup.com/biostatistics/article/18/2/275/2557030?login=true) on local FDR.
