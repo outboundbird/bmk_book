@@ -10,7 +10,10 @@ Multiple comparison in omic data setting.
 ### Adjusted p-value
 Benjamini-Hocheberg adjusted p-value (controling FDR)
 
+[The original paper on adjusted p value](https://rss.onlinelibrary.wiley.com/doi/10.1111/j.2517-6161.1995.tb02031.x)
+
 q value (estimating  p value.)
+The [original paper on q value by Jonh Storey](https://projecteuclid.org/journals/annals-of-statistics/volume-31/issue-6/The-positive-false-discovery-rate--a-Bayesian-interpretation-and/10.1214/aos/1074290335.full)
 
 The difference between BH adjusted p-value and q value by [Gordon Smyth et al](https://support.bioconductor.org/p/49864/) on Bioconductor forum.
 
