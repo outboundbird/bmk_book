@@ -47,6 +47,7 @@ freq_table(bsl, "genes")
 table(bsl[, c("status", "sample")])
 glist <- levels(as.factor(bsl$genes))
 #' The target gene is RPL23.
+#'
 #' ### Normalize against reference gene
 #' Pros: no need for accurate quantification of starting material
 #' Cons: require reference gene(s) with stable expression levels
@@ -78,7 +79,9 @@ m_ct <- bsl %>%
 
 head(m_ct)
 
-#' 2. calculate $\Delta Ct$ in each sample
+#' 2. calculate  the first $\Delta Ct$ (normalize against reference gene) in
+#' each sample.
+#' $\Delta C_T = -(C_T(reference) - C_T(target) )= C_T(target) - C_T(reference)$
 # pivot long to wide table for calculation
 d_ct_sample <- m_ct %>%
   tidyr::pivot_wider(
@@ -87,15 +90,34 @@ d_ct_sample <- m_ct %>%
   ) %>%
   dplyr::arrange(ID, status, sample) %>%
   mutate_at(glist, ~ purrr::map_dbl(., function(x) {
-    RPL23 - x
+    x - RPL23
   })) %>%
   select(-RPL23) %>%
-  data.frame()
-head(d_ct_sample)
+    data.frame()
+
+# plot value distribution
+glist2 <- make.names(glist[-12]) # remove reference gene
+plot(density(d_ct_sample[, glist2[1]]),
+  ylim = c(0, 0.8),
+  xlim = c(0, 20),
+  xlab = "", main = expression(paste(Delta, C[T], "  distributions"))
+)
+invisible(lapply(seq(2, length(glist2)), function(i) {
+  g <- glist2[i]
+  lines(density(d_ct_sample[, g], na.rm = T),
+    xlab = "", ylab = "", main = "",
+    col = i, lty = i,
+    add = T
+  )
+}))
+legend("topleft", glist2,
+  lty = 1:14,
+  col = 1:14, cex = 0.5, bty = "n"
+)
+
 #' 3. Normalize $\Delta C_T$ of disease sample to $\Delta C_T$  of Healthy samples
 #' $\Delta C_{T, D} - \Delta C_{T, H}$ on the populational level. So I take
 #' the mean of the expression levels in diseases and healthy subjects.
-glist2 <- make.names(glist[-12]) # remove reference gene
 diff <- function(x) x - first(x) # first row is healthy subjects
 dd_ct <- d_ct_sample %>%
   dplyr::arrange(status) %>%
@@ -106,33 +128,69 @@ dd_ct <- d_ct_sample %>%
   ungroup() %>%
   mutate_at(glist2, list("chg" = diff))
 
-dd_ct[, glist2]
-
 dd_ct_glist <- grep("chg", names(dd_ct), value = T)
 
 dd_ct %>%
-  mutate_at(dd_ct_glist, ~ purrr::map_dbl(., function(x) 2^x)) %>%
+  mutate_at(dd_ct_glist, ~ purrr::map_dbl(., function(x) 2^(-x))) %>%
   select(status, sample, ends_with("chg")) %>%
-  t()
+  t() %>%
+    DT::datatable()
+
 #' ## $\Delta C_T$ method
-#' $Delta C_T$ method calcluates the difference between the reference and target
+#' $\Delta C_T$ method calcluates the difference of gene expression
+#'  between the reference and target
 #' $C_T$ values for each sample. It uses an expression value of the calibrator
 #' sample that is not 1.
 #' Steps:
 #'
-#' 1. Normalize target gene for each sample with $2^{C_T(reference)- C_T(target)}$
+#' 1. Normalize target gene for each sample with
+#' $2^{C_T(reference)- C_T(target)} = 2^{- \Delta C_T}$
 #' 2. Determine ratio of expression: Control expression = control/ control;
 #' Disease expression = disease/control
 #' Use the example data, the first step was already half done
 exp <- d_ct_sample %>%
-  mutate_at(glist2, ~ purrr::map_dbl(., function(x) 2^x))
+  mutate_at(glist2, ~ purrr::map_dbl(., function(x) 2^(-x)))
 
-head(exp)
+plot(density(exp[, glist2[1]]),
+  ylim = c(0, 1000),
+  xlim = c(-0.06, 0.25),
+  xlab = "",
+  main = expression(paste("Gene expression level distributions " * 2^-Delta^C[T]))
+)
+invisible(lapply(seq(2, length(glist2)), function(i) {
+  g <- glist2[i]
+  lines(density(exp[, g], na.rm = T),
+    xlab = "", ylab = "", main = "",
+    col = i, lty = i,
+    add = T
+  )
+}))
+legend("topright", glist2,
+  lty = 1:14,
+  col = 1:14, cex = 0.5, bty = "n"
+)
+
+#' ### Summary statistics on $2^{-\Delta C_T}$ - relative gene expression level in each group
+#' The gene expression levels are relative to the gene expression level to the reference gene.
 exp %>%
   group_by(status, sample) %>%
   get_summary_stats(type = "mean_se") %>%
-  DT::datatable()
+  mutate(n_mean_se = paste0("N = ", n, ", ", mean, " (", se, ")")) %>%
+    select(-c(n, mean, se)) %>%
+    tidyr::pivot_wider(
+      names_from = c("status", "sample"),
+      values_from = c(n_mean_se)
+    ) %>%
+    DT::datatable(rownames = F)
 
+
+#' ### Comparison between two groups
+#' The comparison between two groups/conditions or against referece group
+#' is done by taking the ratio of the expression levels, i.e.
+#' $$\frac{exp_{disease}}{ exp_{ref}} =\frac{2^{\Delta C_T(D)} }{2^{\Delta C_T (reference)}}$$.
+#'
+#' This is enssentially the same as the delta delta method.
+#'
 #' ## Pfaffl method
 #' This is used when reaction efficiencies of the target and reference genes are
 #' not similar.
