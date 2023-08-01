@@ -27,27 +27,34 @@ options(width = 100)
 #'
 #' In general there are two basic typyes of RT-qPCR quantification analysis:
 #'
-#' - Absolute quantification. To answer the quation of 'How many?', such as chromosome or gene copy number determindation and viral load measurements
-#' - Relative quantification. to compare the changes in gene expression, to answer the question of  what is the fold difference? Usually involves multiple genes.
+#' - Absolute quantification. To answer the quation of 'How many?',
+#' such as chromosome or gene copy number determindation and viral
+#' load measurements
+#' - Relative quantification. to compare the changes in gene expression,
+#' to answer the question of  what is the fold difference? Usually involves
+#' multiple genes.
 #' Here I elaborate more on the relative quantification method.
-
-
 #+ libs
 library(here)
-library(rstatix)
 library(dplyr)
-#+ io
+library(ggplot2)
+source(file.path(here(), "src/utils.R"))
+#+ io, cache = T
 qpcr <- readRDS(file.path(here(), "data/qPCR.rds"))
 bsl <- qpcr %>%
-  filter(Day == "D1")
+  filter(Day == "D1") %>%
+    arrange(ID, Day, sample, genes)
+#' ## Example data {.tabset}
+#' ### Data format
 head(bsl)
+#' ### Groups
 freq_table(bsl, c("status", "sample"))
-freq_table(bsl, "genes")
-
 table(bsl[, c("status", "sample")])
-glist <- levels(as.factor(bsl$genes))
+#' ### Genes
 #' The target gene is RPL23.
-#'
+freq_table(bsl, "genes")
+glist <- levels(as.factor(bsl$genes))
+#' # Relative quantification {.tabset}
 #' ### Normalize against reference gene
 #' Pros: no need for accurate quantification of starting material
 #' Cons: require reference gene(s) with stable expression levels
@@ -82,6 +89,7 @@ head(m_ct)
 #' 2. calculate  the first $\Delta Ct$ (normalize against reference gene) in
 #' each sample.
 #' $\Delta C_T = -(C_T(reference) - C_T(target) )= C_T(target) - C_T(reference)$
+#+ cache =T
 # pivot long to wide table for calculation
 d_ct_sample <- m_ct %>%
   tidyr::pivot_wider(
@@ -118,6 +126,7 @@ legend("topleft", glist2,
 #' 3. Normalize $\Delta C_T$ of disease sample to $\Delta C_T$  of Healthy samples
 #' $\Delta C_{T, D} - \Delta C_{T, H}$ on the populational level. So I take
 #' the mean of the expression levels in diseases and healthy subjects.
+#+ cache =T
 diff <- function(x) x - first(x) # first row is healthy subjects
 dd_ct <- d_ct_sample %>%
   dplyr::arrange(status) %>%
@@ -128,12 +137,17 @@ dd_ct <- d_ct_sample %>%
   ungroup() %>%
   mutate_at(glist2, list("chg" = diff))
 
+#' 4. Calculate the expression ratio between disease and reference group. This is final step:
+#' $\frac{exp_{disease}}{exp_{ref}} = 2^{-\Delta \Delta C_T}$
+#+ cache =T
 dd_ct_glist <- grep("chg", names(dd_ct), value = T)
 
 dd_ct %>%
   mutate_at(dd_ct_glist, ~ purrr::map_dbl(., function(x) 2^(-x))) %>%
   select(status, sample, ends_with("chg")) %>%
+  mutate_if(is.numeric, round, 2) %>%
   t() %>%
+  data.frame() %>%
     DT::datatable()
 
 #' ## $\Delta C_T$ method
@@ -147,7 +161,9 @@ dd_ct %>%
 #' $2^{C_T(reference)- C_T(target)} = 2^{- \Delta C_T}$
 #' 2. Determine ratio of expression: Control expression = control/ control;
 #' Disease expression = disease/control
+#'
 #' Use the example data, the first step was already half done
+#+ cache =T
 exp <- d_ct_sample %>%
   mutate_at(glist2, ~ purrr::map_dbl(., function(x) 2^(-x)))
 
@@ -161,8 +177,7 @@ invisible(lapply(seq(2, length(glist2)), function(i) {
   g <- glist2[i]
   lines(density(exp[, g], na.rm = T),
     xlab = "", ylab = "", main = "",
-    col = i, lty = i,
-    add = T
+    col = i, lty = i
   )
 }))
 legend("topright", glist2,
@@ -172,6 +187,7 @@ legend("topright", glist2,
 
 #' ### Summary statistics on $2^{-\Delta C_T}$ - relative gene expression level in each group
 #' The gene expression levels are relative to the gene expression level to the reference gene.
+#+ cache =T
 exp %>%
   group_by(status, sample) %>%
   get_summary_stats(type = "mean_se") %>%
@@ -187,17 +203,122 @@ exp %>%
 #' ### Comparison between two groups
 #' The comparison between two groups/conditions or against referece group
 #' is done by taking the ratio of the expression levels, i.e.
-#' $$\frac{exp_{disease}}{ exp_{ref}} =\frac{2^{\Delta C_T(D)} }{2^{\Delta C_T (reference)}}$$.
+#' $$\frac{exp_{disease}}{ exp_{ref}} =
+#' \frac{exp_{disease}/exp_{ref}}{exp_{ref}/exp_{ref}}=
+#' \frac{2^{-\Delta C_T(D)} }{2^{-\Delta C_T (reference)}} = 2^{\Delta C_T(ref) - \Delta C_T (D)}$$.
+#' This is enssentially the same as the delta-delta method.
 #'
-#' This is enssentially the same as the delta delta method.
-#'
+#+ Dct, error = T, cache = T
+d_ct_sample <- d_ct_sample %>%
+  mutate(contrast = paste(status, sample)) %>%
+  mutate(dp_norm = if_else(contrast == "Disease Lesion P" |
+    contrast == "Healthy Normal", T, F)) %>%
+  mutate(contrast = factor(contrast,
+    levels = c("Healthy Normal", "Disease Lesion P", "Disease Normal")
+  ))
+
+tmp <- factor(d_ct_sample$contrast,
+  levels = c("Healthy Normal", "Disease Lesion P", "Disease Normal")
+)
+
+rst_t <- sapply(glist2, function(y) {
+  tryCatch(
+    {
+      t_test(d_ct_sample, y, "contrast", "dp_norm")
+    },
+    error = function(e) {
+      print(y)
+      print(e)
+      NULL
+    }
+  )
+}) %>%
+  Reduce("rbind", .) %>%
+  data.frame() %>%
+  mutate_at(c("diff", "se", "lcl", "ucl", "p.val"), as.numeric) %>%
+  mutate_at(c("diff", "se", "lcl", "ucl"), exp2)
+
+rst_t %>%
+  DT::datatable(rownames = F)
+
+ggplot(rst_t, aes(var, diff)) +
+  geom_point() +
+  geom_bar(fill = 1:13, stat = "identity") +
+  geom_errorbar(aes(ymin = lcl, ymax = ucl)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "grey") +
+  labs(
+    y = "Ratio",
+    x = "Genes",
+    title = "Ratio between disease and healthy group"
+  ) +
+  scale_y_continuous(trans = "log2") +
+  theme(axis.text.x = element_text(angle = 45))
+
 #' ## Pfaffl method
 #' This is used when reaction efficiencies of the target and reference genes are
 #' not similar.
 #' $$Ratio = \frac{E_{target}^{[\Delta C_T, target(calibrator - test)]}}{E_{ref}^{[\Delta C_T, ref(calibrator - test)]}}$$
 #'
-#' # Analysis using R package
+#' # Analysis using R package {.tabset}
+#' Relative quantification and calculate fold change using [`pcr`](https://rpubs.com/MahShaaban/pcr) package.
+#+ cache = T
+library(pcr)
+bsl3 <- m_ct %>%
+  tidyr::pivot_wider(
+    id_cols = c("ID", "status", "sample"),
+    names_from = "genes", values_from = "ct"
+  ) %>%
+  mutate(contrast = paste(status, sample)) %>%
+  mutate(dp_norm = if_else(contrast == "Disease Lesion P" |
+    contrast == "Healthy Normal", T, F)) %>%
+  # filter(dp_norm) %>%
+  # select(-c("IL13", "IL31", "IL4", "MRGPRX1", "MRGPRX4", "TRPA1")) %>%
+  data.frame()
+#' ## Delta-Delta method
+#+ cache = F
+pcr_analyze(bsl3[, make.names(glist)],
+  group_var = bsl3[, "contrast"],
+  reference_gene = "RPL23",
+  reference_group = "Healthy Normal",
+) %>%
+  mutate_if(is.numeric, round, 2) %>%
+  DT::datatable(rownames = F)
 
+p <- pcr_analyze(bsl3[, make.names(glist)],
+  group_var = bsl3[, "contrast"],
+  reference_gene = "RPL23",
+  reference_group = "Healthy Normal",
+  plot = T
+)
+p +
+  scale_y_continuous(trans = "log2") +
+  labs(y ='Relative fold change') +
+  theme(legend.position = "top", legend.text = element_text(size = 6)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "grey")
+
+#' ## Delta method
+#'
+#+ cache = T
+pcr_analyze(d_ct_sample[, glist2],
+  group_var = d_ct_sample[, "contrast"],
+  reference_group = "Healthy Normal",
+  method = "delta_ct",
+) %>%
+  mutate_if(is.numeric, round, 2) %>%
+  DT::datatable(rownames = F)
+
+p <- pcr_analyze(d_ct_sample[, glist2],
+  group_var = d_ct_sample[, "contrast"],
+  reference_group = "Healthy Normal",
+  method = "delta_ct",
+  plot = T
+)
+
+p +
+  scale_y_continuous(trans = "log2") +
+  labs(y ='Relative fold change') +
+  theme(legend.position = "top", legend.text = element_text(size = 5))
+#' <details><summary>Session Info</summary>shed", color = "grey")
 #' <details><summary>Session Info</summary>
 sessionInfo()
 #' </details>

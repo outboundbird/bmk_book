@@ -8,7 +8,7 @@ req_libs <- c(
   "devtools"
 )
 
-others <-c(  
+others <-c(
     "logger",
   "devtools",
   "lintr",
@@ -16,8 +16,9 @@ others <-c(
   "CVcalibration",
   "kableExtra",
   "dplyr",
-  "tidyr")
-  
+  "tidyr",
+  "pcr")
+
 to_install <- req_libs[!req_libs %in% env_pkgs]
 failed_pkgs <- c()
 
@@ -60,4 +61,3 @@ if (!length(to_install)) {
 
 # github
 devtools::install_github("hadley/emo")
-
