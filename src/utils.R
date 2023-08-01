@@ -20,7 +20,7 @@ t_test <- function(data, y, contrast, subset_var, ...) {
   sub_idx <- data[, subset_var]
   contr_grp <- data.frame(table(data[, c(subset_var, contrast)])) %>%
     filter(.data[[subset_var]] == T & Freq > 0) %>%
-    select(.data[[contrast]])
+    dplyr::select(.data[[contrast]])
 
   contr_grp <- paste(as.character(contr_grp[, 1]), collapse = ": ")
 

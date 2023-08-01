@@ -18,7 +18,6 @@ knitr::opts_chunk$set(echo = T, comment = "", message = F, warning = F, error = 
 options(width = 100)
 #' # Quantitative PCR (qPCR)
 #' qPCR is another method to quantify the gene expressions. Unlike other high-throughput methods, qPCR usually is not genomewide covered and targets only a few genes at a time.
-#'
 #' Here is a youtube tutorial on [Overview of qPCR](https://youtu.be/1kvy17ugI4w).
 #' [tutorial on data analysis of qPCR](https://youtu.be/GQOnX1-SUrI)
 #'
@@ -33,6 +32,7 @@ options(width = 100)
 #' - Relative quantification. to compare the changes in gene expression,
 #' to answer the question of  what is the fold difference? Usually involves
 #' multiple genes.
+#'
 #' Here I elaborate more on the relative quantification method.
 #+ libs
 library(here)
@@ -48,16 +48,15 @@ bsl <- qpcr %>%
 #' ### Data format
 head(bsl)
 #' ### Groups
-freq_table(bsl, c("status", "sample"))
 table(bsl[, c("status", "sample")])
 #' ### Genes
 #' The target gene is RPL23.
-freq_table(bsl, "genes")
+rstatix::freq_table(bsl, "genes")
 glist <- levels(as.factor(bsl$genes))
 #' # Relative quantification {.tabset}
 #' ### Normalize against reference gene
-#' Pros: no need for accurate quantification of starting material
-#' Cons: require reference gene(s) with stable expression levels
+#' - Pros: no need for accurate quantification of starting material
+#' - Cons: require reference gene(s) with stable expression levels
 #'
 #' | |Target gene | Reference gene|
 #' | --- | --- | --- |
@@ -97,9 +96,8 @@ d_ct_sample <- m_ct %>%
     names_from = "genes", values_from = "ct"
   ) %>%
   dplyr::arrange(ID, status, sample) %>%
-  mutate_at(glist, ~ purrr::map_dbl(., function(x) {
-    x - RPL23
-  })) %>%
+  group_by(ID, status, sample) %>%
+  mutate_at(glist, ~ .-RPL23) %>%
   select(-RPL23) %>%
     data.frame()
 
@@ -135,20 +133,37 @@ dd_ct <- d_ct_sample %>%
   # healthy subject on the top row
   dplyr::arrange(desc(status)) %>%
   ungroup() %>%
-  mutate_at(glist2, list("chg" = diff))
+  mutate_at(glist2, list("dd" = diff))
 
-#' 4. Calculate the expression ratio between disease and reference group. This is final step:
+#' 4. Calculate the expression ratio between disease and reference group.
+#' This is final step:
 #' $\frac{exp_{disease}}{exp_{ref}} = 2^{-\Delta \Delta C_T}$
 #+ cache =T
-dd_ct_glist <- grep("chg", names(dd_ct), value = T)
-
+dd_ct_glist <- grep("dd", names(dd_ct), value = T)
 dd_ct %>%
   mutate_at(dd_ct_glist, ~ purrr::map_dbl(., function(x) 2^(-x))) %>%
-  select(status, sample, ends_with("chg")) %>%
+  select(status, sample, ends_with("dd")) %>%
   mutate_if(is.numeric, round, 2) %>%
   t() %>%
+  data.frame()
+# calculate sd
+std <- function(x) sqrt(first(x)^2 + x^2)
+
+m_ct %>%
+  tidyr::pivot_wider(
+    id_cols = c("ID", "status", "sample"),
+    names_from = "genes", values_from = "ct"
+  ) %>%
   data.frame() %>%
-    DT::datatable()
+  dplyr::arrange(ID, status, sample) %>%
+  group_by(status, sample) %>%
+  summarise_at(glist2, ~ sd(.x, na.rm = T)) %>%
+  dplyr::arrange(desc(status)) %>%
+    ungroup() %>%
+    mutate_at(glist2, list("se" = std)) %>%
+    data.frame() %>%
+    select(status, sample, ends_with("se")) %>%
+      mutate_if(is.numeric, round, 2)
 
 #' ## $\Delta C_T$ method
 #' $\Delta C_T$ method calcluates the difference of gene expression
