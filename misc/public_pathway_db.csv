@@ -1,0 +1,31 @@
+﻿PDB,Type of data,Species,Source,Curation,Last update,Content,url,access
+BioGRID,,,,,,,,
+CORUM,,,,,,,,
+CPDB,"Protein-Protein Interactions, Metabolic Pathways, Signaling Pathways, Transcription Factors / Gene Regulatory Networks, Protein-Compound Interaction","Human, Yeast, Mouse","32 public ressources, list on the web site",manual / electronic,"Jan 11th, 2017","8,342 pathways 840,792 react/interact",http://cpdb.molgen.mpg.de/CPDB,academic
+CTD,,,,,,,,
+DAVID,"Protein-Protein Interactions, Metabolic Pathways, Signaling Pathways",> 65000 species,"BBID, BioCarta, GO, KEGG",manual / electronic,"May, 2016",,https://david-d.ncifcrf.gov/,free
+DIP,,,,,,,,
+DrugBank,,,,,,,,
+GO knowledgebase,"Protein-Protein Interactions, Metabolic Pathways, Signaling Pathways",>350000 species,secondary,manual / electronic,"Sept 26th, 2017",,http://www.geneontology.org,free
+HPRD,,,,,,,,
+HumanCyc (part of BioCyc),Metabolic Pathways,Human,primary,manual,"Nov 28th, 2017",314 pathways 2887 react/interact,https://humancyc.org/,license
+Ingenuity Pathway Knowledge Base,"Protein-Protein Interactions, Metabolic Pathways, Signaling Pathways, Transcription Factors / Gene Regulatory Networks, Protein-Compound Interactions","Rat, Human, Mouse",primary,manual,"June 30th, 2017",,https://www.qiagenbioinformatics.com/products/ingenuity-pathway-analysis/,"License,TM4P"
+InnateDB,"InnateDB is publicly available database of the genes, proteins, experimentally-verified interactions and signaling pathways involved in the innate immune response of humans, mice and bovines to microbial infection. ","mice, human, bovines",,,,"18,780 interactions",https://www.innatedb.com/,
+INOH,,,,,,,,
+IntAct,,,,,,,,
+KEGG,"Metabolic Pathways, Pathway Diagrams",> 5000 species,primary,manual,"Aug 1st, 2017","525,000 pathways, 10,652 react/interact ",http://www.genome.jp/kegg/,academic
+MetaCore,"Protein-Protein Interactions, Metabolic Pathways, Signaling Pathways, Transcription Factors / Gene Regulatory Networks, Protein-Compound Interactions, Genetic Interaction Networks",Human,primary,manual,"July 12th, 2017","1,600 pathways, 1,700,000 react/interact",https://portal.genego.com/,"License,TM4P"
+miRTarBase,,,,,,,,
+MSigDB,,,,,,,,
+NCI,,,,,,,,
+NetPath,,,,,,,,
+PANTHER,"Signaling Pathways, Pathway Diagrams, Protein Sequence Focused",112 genomes,primary,manual,"July 10th, 2017",177 pathways,http://www.pantherdb.org,free
+Pathway Commons,"Protein-Protein Interactions, Metabolic Pathways, Signaling Pathways, Protein-Compound Interactions","Human, Mouse, Viruses…","BIND, BioGRID, CORUM, CTD, DIP, DrugBank, HPRD, HumanCyc, IntAct, INOH, KEGG, miRTarBase, MSigDB, NetPath, PANTHER, PID, PhosphoSitePlus, Reactome, Recon X, SMPD, WikiPathways",manual / electronic,"Aug 16th, 2017, variable according database","5,900 pathways,
+1,931,035 react/interact",http://www.pathwaycommons.org,free
+Pathway Studio,"Protein-Protein Interactions, Signaling Pathways, Protein-Compound Interactions","Human, Rat, Mouse, Fly, Yeast, Plants…","PubMed, BIND, HPRD, KEGG, GO",manual,"Nov 1st, 2015","1,800 pathways",https://www.elsevier.com/solutions/pathway-studio-biological-research,license
+PhosphoSitePlus,,,,,,,,
+PID,,,,,,,,
+Reactome,"Metabolic Pathways, Signaling Pathways, Pathway Diagrams","Human, Rat, Mouse, Fly…",primary,manual,"July 5th, 2017","22,928 pathways, 84,759 react/interact",http://www.reactome.org,free
+Recon X,,,,,,,,
+TRANSPATH,"Metabolic Pathways, Signaling Pathway","Human, Mouse, Rat…",primary,manual,"Feb 1st, 2017","190 pathways,521,323 react/interact",http://genexplain.com/transpath/,license
+WikiPathways,"Metabolic Pathways, Signaling Pathways, Pathway Diagrams",25 species,primary,manual,"Aug 10th, 2017",2475 pathways,http://wikipathways.org/index.php/WikiPathways,free
