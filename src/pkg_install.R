@@ -5,7 +5,9 @@ req_libs <- c(
   "jsonlite",
   "languageserver",
   "pandoc",
-  "devtools"
+  "devtools",
+  "NADA2",
+  "ssizeRNA"
 )
 
 others <-c(
@@ -59,5 +61,9 @@ if (!length(to_install)) {
   )
 }
 
+BiocManager::install("ddCt")
+BiocManager::install("RnaSeqSampleSize")
+BiocManager::install("RNASeqPower")
+BiocManager::install("ssizeRNA")
 # github
 devtools::install_github("hadley/emo")

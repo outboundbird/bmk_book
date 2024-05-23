@@ -47,6 +47,16 @@ bsl <- qpcr %>%
 #' ## Example data {.tabset}
 #' ### Data format
 head(bsl)
+# /*
+# /no run
+bsl %>%
+  rename(Well=pos, Gene = genes, Ct = ct) %>%
+  mutate(Reference = if_else(Gene == "RPL23", 'refG',''),
+  Sample = if_else(status == 'Healthy', 'Calibrator', 'Disease'),
+  Sample_name = paste(ID, sample, sep='_')) %>%
+  select(Well, Sample_name, Sample, Gene, Reference, Ct) %>%
+  write.csv('data/to_app.csv', row.names =F, quote = F)
+# */
 #' ### Groups
 table(bsl[, c("status", "sample")])
 #' ### Genes
@@ -333,6 +343,9 @@ p +
   scale_y_continuous(trans = "log2") +
   labs(y ='Relative fold change') +
   theme(legend.position = "top", legend.text = element_text(size = 5))
+
+library(ddCt)
+
 #' <details><summary>Session Info</summary>shed", color = "grey")
 #' <details><summary>Session Info</summary>
 sessionInfo()

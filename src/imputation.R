@@ -14,7 +14,7 @@
 #' ---
 #+ setup, include = FALSE
 # knitr::opts_knit$set(root_dir='/mnt/c/Users/e0482362/Work/bookdown/bookdown/src')
-knitr::opts_chunk$set(echo = T, comment = "", message = F, warning = F, error = F)
+knitr::opts_chunk$set(echo = T, comment = "", message = F, warning = T, error = F)
 options(width = 100)
 #+ libs
 library(here)
